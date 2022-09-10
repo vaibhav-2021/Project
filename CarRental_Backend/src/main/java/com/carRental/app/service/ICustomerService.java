@@ -13,4 +13,7 @@ public interface ICustomerService {
  CustomerDto updateProfile(CustomerDto CustomerDto,Long custId);
  List<BookingDto> getOldBookings(Long customerId);
  List<BookingDto> getCurrentBookings(Long customerId);
+ String cancelCarBooking(Long bookingId);
+ 
+ String submitCar(Long bookingId);
 }

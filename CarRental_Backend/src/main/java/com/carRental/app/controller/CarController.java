@@ -36,4 +36,6 @@ public class CarController {
 	public List<Car> getAvailableCar(@PathVariable Long locId){
 		return carServ.findAvailableCars(locId);
 	}
+	
+	
 }

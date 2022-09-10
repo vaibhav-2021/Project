@@ -39,7 +39,7 @@ public class Booking {
 	
 	private Long pickUpLocId;
 	private Long dropLocId;
-	@Column(length =12)
+	@Column(length =30)
 	private String bookingStatus;
 	
 	

@@ -14,6 +14,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.carRental.app.dto.BookingDto;
 import com.carRental.app.dto.CustomerDto;
 import com.carRental.app.dto.FeedbackDto;
 import com.carRental.app.dto.LoginDto;
@@ -51,5 +52,10 @@ public class AdminController {
 	public ResponseEntity<?> addFeedback(@RequestBody  @Valid FeedbackDto reply,@PathVariable Long custId,@PathVariable  Long bookingId){
 		System.out.println(" Feedback Contoller"+custId +""+ bookingId);
 		return ResponseEntity.ok().body(feedbackService.addReply(reply ,bookingId , custId));
+	}
+	
+	@GetMapping("/getallbookings")
+	public List<BookingDto> getAllBookings(){
+		return adminServ.getAllBookings();
 	}
 }
