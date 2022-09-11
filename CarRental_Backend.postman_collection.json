@@ -10,7 +10,7 @@
 			"name": "Customer",
 			"item": [
 				{
-					"name": "Add new Customer",
+					"name": "Signup",
 					"request": {
 						"auth": {
 							"type": "noauth"
@@ -74,7 +74,7 @@
 					"response": []
 				},
 				{
-					"name": "GetAvailableCar",
+					"name": "Search Car",
 					"protocolProfileBehavior": {
 						"disableBodyPruning": true
 					},
@@ -117,6 +117,88 @@
 					"response": []
 				},
 				{
+					"name": "Book  a car",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n     \"returnDate\": \"2022-09-08\",\r\n       \r\n        \"dropLocId\": 1\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/customer/booking/1/2",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"customer",
+								"booking",
+								"1",
+								"2"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Return Car",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/customer/submitcar/16",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"customer",
+								"submitcar",
+								"16"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "update Profile",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"firstName\": \"Amol\",\r\n    \"lastName\": \"Totre\",\r\n    \"middleName\": \"Pramod\",\r\n    \"email\": \"amol@test.com\",\r\n    \"mobileNo\": 8082495381,\r\n    \"state\": \"Maharashtra\",\r\n    \"district\": \"Satara\",\r\n    \"city\": \"Kolhapur\",\r\n    \"pincode\": 410209,\r\n    \"password\":\"amol@123\",\r\n    \"drivingLic\": \"CDCD56789123223\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/customer/update/5",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"customer",
+								"update",
+								"5"
+							]
+						}
+					},
+					"response": []
+				},
+				{
 					"name": "Add Feedback",
 					"request": {
 						"auth": {
@@ -152,6 +234,27 @@
 								"addfeedback",
 								"1",
 								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Cancel Booking",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/customer/cancelbooking/6",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"customer",
+								"cancelbooking",
+								"6"
 							]
 						}
 					},
@@ -214,109 +317,6 @@
 								"customer",
 								"getcurrentbookings",
 								"1"
-							]
-						}
-					},
-					"response": []
-				},
-				{
-					"name": "update customer",
-					"request": {
-						"method": "PUT",
-						"header": [],
-						"body": {
-							"mode": "raw",
-							"raw": "{\r\n    \"firstName\": \"Amol\",\r\n    \"lastName\": \"Totre\",\r\n    \"middleName\": \"Pramod\",\r\n    \"email\": \"amol@test.com\",\r\n    \"mobileNo\": 8082495381,\r\n    \"state\": \"Maharashtra\",\r\n    \"district\": \"Satara\",\r\n    \"city\": \"Kolhapur\",\r\n    \"pincode\": 410209,\r\n    \"password\":\"amol@123\",\r\n    \"drivingLic\": \"CDCD56789123223\"\r\n}",
-							"options": {
-								"raw": {
-									"language": "json"
-								}
-							}
-						},
-						"url": {
-							"raw": "http://localhost:8080/customer/update/5",
-							"protocol": "http",
-							"host": [
-								"localhost"
-							],
-							"port": "8080",
-							"path": [
-								"customer",
-								"update",
-								"5"
-							]
-						}
-					},
-					"response": []
-				},
-				{
-					"name": "Book  a car",
-					"request": {
-						"method": "POST",
-						"header": [],
-						"body": {
-							"mode": "raw",
-							"raw": "{\r\n     \"returnDate\": \"2022-09-08\",\r\n       \r\n        \"dropLocId\": 1\r\n}",
-							"options": {
-								"raw": {
-									"language": "json"
-								}
-							}
-						},
-						"url": {
-							"raw": "http://localhost:8080/customer/booking/1/2",
-							"protocol": "http",
-							"host": [
-								"localhost"
-							],
-							"port": "8080",
-							"path": [
-								"customer",
-								"booking",
-								"1",
-								"2"
-							]
-						}
-					},
-					"response": []
-				},
-				{
-					"name": "Cancel Booking",
-					"request": {
-						"method": "PUT",
-						"header": [],
-						"url": {
-							"raw": "http://localhost:8080/customer/cancelbooking/6",
-							"protocol": "http",
-							"host": [
-								"localhost"
-							],
-							"port": "8080",
-							"path": [
-								"customer",
-								"cancelbooking",
-								"6"
-							]
-						}
-					},
-					"response": []
-				},
-				{
-					"name": "Submit car",
-					"request": {
-						"method": "PUT",
-						"header": [],
-						"url": {
-							"raw": "http://localhost:8080/customer/submitcar/10",
-							"protocol": "http",
-							"host": [
-								"localhost"
-							],
-							"port": "8080",
-							"path": [
-								"customer",
-								"submitcar",
-								"10"
 							]
 						}
 					},
@@ -386,13 +386,104 @@
 					"response": []
 				},
 				{
+					"name": "view all customers",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/admin/getallcustomers",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"admin",
+								"getallcustomers"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "View all car",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/admin/getallcars",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"admin",
+								"getallcars"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "View all bookings",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/admin/getallbookings",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"admin",
+								"getallbookings"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Reply To Feedback",
+					"request": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"reply\":\"Thank  very Much\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/admin/replyfeedback/1/1",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"admin",
+								"replyfeedback",
+								"1",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
 					"name": "Add Location",
 					"request": {
 						"method": "POST",
 						"header": [],
 						"body": {
 							"mode": "raw",
-							"raw": "{\r\n    \"street\":\"MG Road\",\r\n    \"district\":\"Satara\",\r\n    \"city\":\"Karad\",\r\n    \"state\":\"Maharastra\",\r\n    \"pincode\":415110,\r\n    \"locationName\":\"Wakhan Road\"\r\n}",
+							"raw": "{\r\n    \"street\":\"Mg Road\",\r\n    \"district\":\"Mumbai\",\r\n    \"city\":\"Mumbai\",\r\n    \"state\":\"Maharastra\",\r\n    \"pincode\":410206,\r\n    \"locationName\":\"Mg Road\"\r\n}",
 							"options": {
 								"raw": {
 									"language": "json"
@@ -438,97 +529,6 @@
 							"path": [
 								"admin",
 								"addcategory"
-							]
-						}
-					},
-					"response": []
-				},
-				{
-					"name": "get all car",
-					"request": {
-						"method": "GET",
-						"header": [],
-						"url": {
-							"raw": "http://localhost:8080/admin/getallcars",
-							"protocol": "http",
-							"host": [
-								"localhost"
-							],
-							"port": "8080",
-							"path": [
-								"admin",
-								"getallcars"
-							]
-						}
-					},
-					"response": []
-				},
-				{
-					"name": "Reply To Feedback",
-					"request": {
-						"method": "PUT",
-						"header": [],
-						"body": {
-							"mode": "raw",
-							"raw": "{\r\n    \"reply\":\"Thank  very Much\"\r\n}",
-							"options": {
-								"raw": {
-									"language": "json"
-								}
-							}
-						},
-						"url": {
-							"raw": "http://localhost:8080/admin/replyfeedback/1/1",
-							"protocol": "http",
-							"host": [
-								"localhost"
-							],
-							"port": "8080",
-							"path": [
-								"admin",
-								"replyfeedback",
-								"1",
-								"1"
-							]
-						}
-					},
-					"response": []
-				},
-				{
-					"name": "get all customers",
-					"request": {
-						"method": "GET",
-						"header": [],
-						"url": {
-							"raw": "http://localhost:8080/admin/getallcustomers",
-							"protocol": "http",
-							"host": [
-								"localhost"
-							],
-							"port": "8080",
-							"path": [
-								"admin",
-								"getallcustomers"
-							]
-						}
-					},
-					"response": []
-				},
-				{
-					"name": "New Request",
-					"request": {
-						"method": "GET",
-						"header": [],
-						"url": {
-							"raw": "http://localhost:8080/admin/getallbookings",
-							"protocol": "http",
-							"host": [
-								"localhost"
-							],
-							"port": "8080",
-							"path": [
-								"admin",
-								"getallbookings"
 							]
 						}
 					},

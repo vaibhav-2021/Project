@@ -78,39 +78,48 @@ public class CarServiceImp implements ICarService {
 		 Car car = carRepo.findById(carId).orElseThrow(()-> new ResourceNotFoundException("Invalid Car Id"));
 		 if(car.isAvailableFlag()) {
 			 Booking bookingEntity = mapper.map(bookingDto, Booking.class);
-			 bookingEntity.setCarId(car);
-			 bookingEntity.setCustomerId(customer);
-			 bookingEntity.setPickUpDate( LocalDate.now());
-			 bookingEntity.setBookingStatus("Booked");
-			 
-			 //get car current location id
-			 Long carlocationId = car.getLocationId().getLocationId();
-			 // current location id -> pick_up_loc_id
-			 bookingEntity.setPickUpLocId(carlocationId);
-			 //create booking
-			 Booking savedBooking = bookRepo.save(bookingEntity);
-			 if(savedBooking!=null) {
-				
-				 Period p= Period.between(bookingEntity.getPickUpDate(),bookingEntity.getReturnDate());
-				 int differnce=p.getDays();
-				 double totalAmount= differnce* (car.getCarCategoryId().getCostPerDay());
-				Billing billingEntity = new Billing();
-				billingEntity.setActualReturnDate(bookingEntity.getReturnDate());
-				billingEntity.setTotalAmount(totalAmount);
-				billingEntity.setBillingStatus("Paid");
-				billingEntity.setBillingDate(LocalDate.now());
-				billingEntity.setBookingId(savedBooking);
-				//save entry in billing table
-				billRepo.save(billingEntity);
-				
-				//update available falg false in cars table;
-				car.setAvailableFlag(false);
-				carRepo.save(car);	 
+			 Period checkBookingDays = Period.between(LocalDate.now(),bookingEntity.getReturnDate());
+			 int noOfBookingDays=checkBookingDays.getDays();
+			 if(noOfBookingDays>=0) {
+				 bookingEntity.setCarId(car);
+				 bookingEntity.setCustomerId(customer);
+				 bookingEntity.setPickUpDate( LocalDate.now());
+				 bookingEntity.setBookingStatus("Booked");
+				 
+				 //get car current location id
+				 Long carlocationId = car.getLocationId().getLocationId();
+				 // current location id -> pick_up_loc_id
+				 bookingEntity.setPickUpLocId(carlocationId);
+				 //create booking
+				 Booking savedBooking = bookRepo.save(bookingEntity);
+				 if(savedBooking!=null) {
+					
+					 Period p= Period.between(bookingEntity.getPickUpDate(),bookingEntity.getReturnDate());
+					 int differnce=p.getDays();
+					 if(differnce==0) {
+						 //if same day return than min 1 day fare will be charged
+						 differnce=1;
+					 }
+					 double totalAmount= differnce* (car.getCarCategoryId().getCostPerDay());
+					Billing billingEntity = new Billing();
+					billingEntity.setActualReturnDate(bookingEntity.getReturnDate());
+					billingEntity.setTotalAmount(totalAmount);
+					billingEntity.setBillingStatus("Paid");
+					billingEntity.setBillingDate(LocalDate.now());
+					billingEntity.setBookingId(savedBooking);
+					//save entry in billing table
+					billRepo.save(billingEntity);
+					
+					//update available falg false in cars table;
+					car.setAvailableFlag(false);
+					carRepo.save(car);	 
+				 }
+				 return savedBooking.getBookingId();
 			 }
-			 return savedBooking.getBookingId();
-		 }
-		 return null;
-		
+			
+			 } return null;
+			 
+				
 	}
 	
 	

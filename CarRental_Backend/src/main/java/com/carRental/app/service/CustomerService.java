@@ -115,21 +115,27 @@ public class CustomerService implements ICustomerService {
 	@Override
 	public String cancelCarBooking(Long bookingId) {
 		Booking booking = bookingRepo.findById(bookingId).orElseThrow(() -> new ResourceNotFoundException("Invalid Booking Id!!"));
-		booking.setBookingStatus("Cancelled And Refunded");
-	
-		bookingRepo.save(booking);
+		Period checkCancelPeriod= Period.between(booking.getPickUpDate(),LocalDate.now());
+		if(checkCancelPeriod.getDays()<= 0){
+			booking.setBookingStatus("Cancelled And Refunded");
+			
+			bookingRepo.save(booking);
+			
+		Billing bill=  billRepo.findByBookingId(booking).orElseThrow(() -> new ResourceNotFoundException("Invalid Billing Id!!"));
+			bill.setBillingStatus("Cancelled");
+			bill.setTotalAmount(0);
+			
+			billRepo.save(bill);
+			
+			Car car = carRepo.findById(booking.getCarId().getCarId()).orElseThrow(() -> new ResourceNotFoundException("Invalid Car Id!!"));
+			car.setAvailableFlag(true);
+			carRepo.save(car);
+			
+		return "Booking cancelled ";
 		
-	Billing bill=  billRepo.findByBookingId(booking).orElseThrow(() -> new ResourceNotFoundException("Invalid Billing Id!!"));
-		bill.setBillingStatus("Cancelled");
-		bill.setTotalAmount(0);
-		
-		billRepo.save(bill);
-		
-		Car car = carRepo.findById(booking.getCarId().getCarId()).orElseThrow(() -> new ResourceNotFoundException("Invalid Car Id!!"));
-		car.setAvailableFlag(true);
-		carRepo.save(car);
-		
-	return "Booking cancelled ";
+		}else
+			return "Car Cancellation period is over";
+			
 	}
 
 	@Override

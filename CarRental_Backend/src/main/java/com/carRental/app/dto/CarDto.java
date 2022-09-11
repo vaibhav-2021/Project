@@ -18,7 +18,7 @@ public class CarDto {
 	private String company;
 	private int modelYear;
 //	private boolean availableFlag;
-	private byte mileage ;
+	private byte milage ;
 	private String modelType;
 	private Long carCategoryId;
 	private Long locationId;
