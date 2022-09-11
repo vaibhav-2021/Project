@@ -45,7 +45,11 @@ public class CustomerController {
 	@PostMapping("/signin")
 	public ResponseEntity<?> authenticateCust(@RequestBody @Valid LoginDto loginDto){
 		//System.out.println(custService.customerSignIn(customer));
-		return ResponseEntity.ok().body(custService.customerSignIn(loginDto));
+		CustomerDto customerSignIn = custService.customerSignIn(loginDto);
+		if(customerSignIn!=null) {
+			return ResponseEntity.ok().body(customerSignIn);
+		}
+		return ResponseEntity.internalServerError().body(new ApiResponse("Invalid Credentials"));
 	}
 	
 	@PutMapping("/update/{custId}")

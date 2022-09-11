@@ -3,11 +3,11 @@ package com.carRental.app.service;
 import java.time.LocalDate;
 import java.time.Period;
 import java.util.List;
-import java.util.Optional;
 import java.util.stream.Collectors;
 
 import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -40,6 +40,8 @@ public class CustomerService implements ICustomerService {
 
 	@Autowired
 	private ModelMapper modelMapper;
+	@Autowired
+	private PasswordEncoder passwordEncoder;
 	
 	
 	public static final  int FINE=500;
@@ -47,7 +49,7 @@ public class CustomerService implements ICustomerService {
 	@Override
 	public CustomerDto registerCustomer(CustomerDto customerDto) {
 		Customer customer = dtoToCustomer(customerDto);
-
+        customer.setPassword(passwordEncoder.encode(customerDto.getPassword()));
 		Customer savedCustomer = custRepo.save(customer);
 
 		return customerToDto(savedCustomer);
@@ -55,9 +57,15 @@ public class CustomerService implements ICustomerService {
 
 	@Override
 	public CustomerDto customerSignIn(LoginDto login) {
-		Customer custEntity = custRepo.findByEmailAndPassword(login.getEmail(), login.getPassword())
-				.orElseThrow(() -> new ResourceNotFoundException("Invalid Credentials"));
-		return modelMapper.map(custEntity, CustomerDto.class);
+		System.out.println("Password "+passwordEncoder.encode(login.getPassword()));
+		Customer customer=custRepo.findByEmail(login.getEmail());
+//		Customer custEntity = custRepo.findByEmailAndPassword(login.getEmail(), passwordEncoder.matches(login.getPassword(),customer.getPassword()))
+//				.orElseThrow(() -> new ResourceNotFoundException("Invalid Credentials"));
+		if(passwordEncoder.matches(login.getPassword(),customer.getPassword())) {
+			return modelMapper.map(customer, CustomerDto.class);
+		}
+		return null;
+		
 	}
 
 	@Override

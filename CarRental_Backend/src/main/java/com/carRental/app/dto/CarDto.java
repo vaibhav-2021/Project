@@ -1,5 +1,8 @@
 package com.carRental.app.dto;
 
+import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.annotation.JsonProperty.Access;
+
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -22,4 +25,6 @@ public class CarDto {
 	private String modelType;
 	private Long carCategoryId;
 	private Long locationId;
+	@JsonProperty(access = Access.READ_ONLY)
+	private String carImage;
 }

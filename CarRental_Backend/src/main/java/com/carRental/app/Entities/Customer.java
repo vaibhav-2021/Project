@@ -52,7 +52,7 @@ public class Customer {
 	@Column(unique = true)
 	private long mobileNo;
 
-	@Column(length = 20)
+//	@Column(length = 100)
 	@JsonProperty(access = Access.WRITE_ONLY)
 	private String password;
 

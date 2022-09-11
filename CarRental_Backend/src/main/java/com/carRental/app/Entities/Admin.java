@@ -33,7 +33,7 @@ public class Admin {
 	private Long adminId;
 	@Column(length = 50,unique = true)
 	private String email;
-	@Column(length = 50)
+//	@Column(length = 50)
 	@JsonProperty(access = Access.WRITE_ONLY)
 	private String password;
 }

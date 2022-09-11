@@ -5,6 +5,7 @@ import java.util.stream.Collectors;
 
 import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -32,6 +33,7 @@ public class AdminServiceImp implements IAdminService {
 
 	@Autowired
 	private ModelMapper modelMapper;
+	
 	
 	@Override
 	public Admin adminSigin(LoginDto login) {

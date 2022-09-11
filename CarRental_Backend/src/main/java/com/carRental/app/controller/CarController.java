@@ -1,5 +1,6 @@
 package com.carRental.app.controller;
 
+import java.io.IOException;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -9,11 +10,14 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.multipart.MultipartFile;
 
 import com.carRental.app.Entities.Car;
 import com.carRental.app.dto.CarDto;
 import com.carRental.app.service.ICarService;
+import com.carRental.app.service.ImageHandlingService;
 
 @RestController
 
@@ -21,6 +25,8 @@ public class CarController {
 
 	@Autowired
 	private ICarService carServ;
+	@Autowired
+	private ImageHandlingService imgServ;
 	
 	@PostMapping("/admin/addcar")
 	public ResponseEntity<?> addCar(@RequestBody CarDto newCar){
@@ -35,6 +41,11 @@ public class CarController {
 	@GetMapping("/customer/getavailablecars/{locId}")
 	public List<Car> getAvailableCar(@PathVariable Long locId){
 		return carServ.findAvailableCars(locId);
+	}
+	
+	@PostMapping("/{carId}/image")
+	public ResponseEntity<?> uploadImage(@PathVariable Long carId,@RequestParam MultipartFile imageFile) throws IOException {
+		return ResponseEntity.status(HttpStatus.CREATED).body(imgServ.uploadImage(carId, imageFile));
 	}
 	
 	
