@@ -2,9 +2,11 @@ package com.carRental.app.dto;
 
 import javax.validation.constraints.Email;
 import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.NotEmpty;
 import javax.validation.constraints.Pattern;
 
 import org.hibernate.validator.constraints.Length;
+import org.hibernate.validator.constraints.Range;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonProperty.Access;
@@ -37,8 +39,8 @@ public class CustomerDto {
 	@Email(message = "Invalid Email Format")
 	private String email;
 
-	//@NotBlank(message = "Mobile must be supplied ...")
-	//@Length(min = 10,max = 13 ,message = "Invalid length for Mobile No ")
+	//@NotEmpty(message = "Mobile must be supplied ...")
+   // @Range(min = 10,max = 13 ,message = "Invalid length for Mobile No ")
 	private long mobileNo;
 
 	@Pattern(regexp="((?=.*\\d)(?=.*[a-z])(?=.*[#@$*]).{5,20})",message = "Blank or invalid password")
@@ -54,8 +56,8 @@ public class CustomerDto {
 	@NotBlank(message = "City must be supplied ...")
 	private String city;
 
-	//@NotBlank(message = "Pincode must be supplied ...")
-	//@Length(min = 6,max = 6 ,message = "Invalid length for PinCode ")
+//	@NotEmpty(message = "Pincode must be supplied ...")
+//     @Range(min = 6,message = "Invalid length for PinCode ")
 	private int pincode;
 	@NotBlank(message = "DrivingLic must be supplied ...")
 	//@Length(min = 15,max = 15 ,message = "Invalid length for DrivLic ")
