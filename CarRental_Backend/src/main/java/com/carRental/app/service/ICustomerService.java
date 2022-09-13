@@ -14,6 +14,7 @@ public interface ICustomerService {
  List<BookingDto> getOldBookings(Long customerId);
  List<BookingDto> getCurrentBookings(Long customerId);
  String cancelCarBooking(Long bookingId);
+ CustomerDto getCutomerById(Long custId);
  
  String submitCar(Long bookingId);
 }

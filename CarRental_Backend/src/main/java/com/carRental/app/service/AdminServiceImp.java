@@ -11,10 +11,12 @@ import org.springframework.transaction.annotation.Transactional;
 
 import com.carRental.app.Entities.Admin;
 import com.carRental.app.Entities.Booking;
+import com.carRental.app.Entities.CarCategory;
 import com.carRental.app.Entities.Customer;
 import com.carRental.app.customException.ResourceNotFoundException;
 import com.carRental.app.dao.AdminRepository;
 import com.carRental.app.dao.BookingRepository;
+import com.carRental.app.dao.CarCategoryRepository;
 import com.carRental.app.dao.CustomerRepository;
 import com.carRental.app.dto.BookingDto;
 import com.carRental.app.dto.LoginDto;
@@ -33,6 +35,8 @@ public class AdminServiceImp implements IAdminService {
 
 	@Autowired
 	private ModelMapper modelMapper;
+	@Autowired
+	private CarCategoryRepository carCatRepo;
 	
 	
 	@Override
@@ -51,5 +55,10 @@ public class AdminServiceImp implements IAdminService {
 		// System.out.println(bookingList);
 		return bookingsDtoList;
 	}
+	@Override
+	public List<CarCategory> getAllCarCategory() {
+		return carCatRepo.findAll();
+	}
+	
 
 }

@@ -97,6 +97,11 @@ public class CustomerController {
 		return ResponseEntity.ok().body(custService.submitCar(bookingid));
 	}
 	
+	@GetMapping("/getcustomer/{custId}")
+	public ResponseEntity<?> getCustomerById(@PathVariable Long custId){
+		return ResponseEntity.ok().body(custService.getCutomerById(custId));
+	}
+	
 	
 
 }

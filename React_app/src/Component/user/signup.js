@@ -70,33 +70,29 @@ const SignUp=()=>{
     }
     return(
         <div className='row'>
-            <h2 style={{textAlign:'center',margin:20}}>SignUp</h2>
-            <div className='col-3'>
+            <h2 style={{color:'blue',textAlign:'center',margin:20}}>SignUp</h2>
+            <div className='col-4'>
             <Input Label='First Name' Onchange={(e)=>setFname(e.target.value)}/>
                 <Input Label='Last Name' Onchange={(e)=>setLname(e.target.value)}/>
                 <Input Label='Middle Name' Onchange={(e)=>setMname(e.target.value)}/>
                 <Input Label='Email' Type='email' Onchange={(e)=>setEmail(e.target.value)}/>
             </div>
-            <div className='col-3'>
+            <div className='col-4'>
                
                 <Input Label='Mobile' Onchange={(e)=>setMobile(e.target.value)}/>
                 <Input Label='City' Onchange={(e)=>setCity(e.target.value)}/>
                 <Input Label='District' Onchange={(e)=>setDist(e.target.value)}/>
-                <Input Label='State' Onchange={(e)=>setState(e.target.value)}/>
-               
-               
-
+                <h6>Already have an Account ? <Link  to='/user/signin'>SignIn</Link></h6> 
+                <button style={{backgroundColor:'blue',border:'none',borderRadius:5,color:'white',}} onClick={signup} >SignUp</button>
+                
             </div>
-            <div className='col-3'>
+            <div className='col-4'>
             <Input Label='Pincode' Onchange={(e)=>setPin(e.target.value)}/>
                 <Input Label='Driving Lic' Onchange={(e)=>setDrivLic(e.target.value)}/>
                 <Input Label='Password' Onchange={(e)=>setPass(e.target.value)}/>
+                <Input Label='State' Onchange={(e)=>setState(e.target.value)}/>
             </div>
-           <div className='col-3'>
-           <h6>Already have an Account ? <Link  to='/custSignin'>SignIn</Link></h6> 
-                <button style={{backgroundColor:'lightsalmon',border:'none',borderRadius:5,color:'white',}} onClick={signup} >SignUp</button>
-
-        </div>
+           
            </div>
     )
 }

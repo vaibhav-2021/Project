@@ -82,7 +82,9 @@ public class CustomerService implements ICustomerService {
 		// System.out.println(custRepo.findById(detachedCustomer.getCustId()));
 		Customer customer = dtoToCustomer(CustomerDto);
 		customer.setCustId(custId);
-		custRepo.findById(custId).orElseThrow(() -> new ResourceNotFoundException("Invalid Customer!!"));
+		
+		Customer customerPass= custRepo.findById(custId).orElseThrow(() -> new ResourceNotFoundException("Invalid Customer!!"));
+		customer.setPassword(customerPass.getPassword());
 		return customerToDto(custRepo.save(customer));
 	}
 
@@ -174,6 +176,13 @@ public class CustomerService implements ICustomerService {
 		return "Car Submited";
 		
 	}
+
+	@Override
+	public CustomerDto getCutomerById(Long custId) {
+		Customer customer=custRepo.findById(custId).orElseThrow(()-> new ResourceNotFoundException("Invalid CustId"));
+		return modelMapper.map(customer, CustomerDto.class);
+	}
+	
 
 	
 	
