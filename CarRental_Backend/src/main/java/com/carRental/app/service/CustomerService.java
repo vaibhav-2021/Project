@@ -3,6 +3,7 @@ package com.carRental.app.service;
 import java.time.LocalDate;
 import java.time.Period;
 import java.util.List;
+import java.util.Optional;
 import java.util.stream.Collectors;
 
 import org.modelmapper.ModelMapper;
@@ -181,6 +182,13 @@ public class CustomerService implements ICustomerService {
 	public CustomerDto getCutomerById(Long custId) {
 		Customer customer=custRepo.findById(custId).orElseThrow(()-> new ResourceNotFoundException("Invalid CustId"));
 		return modelMapper.map(customer, CustomerDto.class);
+	}
+
+	@Override
+	public Billing findBillByBookingId(Long bookingId) {
+		Booking booking = bookingRepo.findById(bookingId).orElseThrow(()-> new ResourceNotFoundException("Invalid Booking Id"));
+		
+		return billRepo.findByBookingId(booking).orElseThrow(()-> new ResourceNotFoundException("Invalid Booking Id"));
 	}
 	
 

@@ -42,7 +42,7 @@ public class AdminController {
 	@Autowired
 	private IFeedbackService feedbackService;
 	@Autowired
-	private ILocationService locRepo;
+	private ILocationService locserv;
 	
 	@PostMapping("/signin")
 	public ResponseEntity<?> authenticateAdmin(@RequestBody @Valid LoginDto admin)
@@ -73,6 +73,10 @@ public class AdminController {
 	
 	@GetMapping("/getalllocations")
 	public List<Location> getAllLocations(){
-		return locRepo.getAllLocations();
+		return locserv.getAllLocations();
+	}
+	@GetMapping("/getbillbyid/{bookingId}")
+	public ResponseEntity<?> getBillById(@PathVariable Long bookingId){
+		return ResponseEntity.ok().body(custServ.findBillByBookingId(bookingId));
 	}
 }

@@ -8,4 +8,5 @@ public interface ILocationService {
 
 	Long addLocation (Location location);
 	List<Location> getAllLocations();
+	Location findByLocationId(Long id);
 }
