@@ -1,5 +1,6 @@
 package com.carRental.app.service;
 
+import java.time.LocalDate;
 import java.util.List;
 
 import com.carRental.app.Entities.Billing;
@@ -19,4 +20,5 @@ public interface ICustomerService {
  
  String submitCar(Long bookingId);
  Billing findBillByBookingId(Long bookingId);
+ Long getTotalAmount(Long costPerDay,LocalDate pickUpDate,LocalDate returnDate);
 }

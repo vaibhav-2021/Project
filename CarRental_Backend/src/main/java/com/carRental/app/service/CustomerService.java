@@ -190,6 +190,15 @@ public class CustomerService implements ICustomerService {
 		
 		return billRepo.findByBookingId(booking).orElseThrow(()-> new ResourceNotFoundException("Invalid Booking Id"));
 	}
+
+	@Override
+	public Long getTotalAmount(Long costPerDay, LocalDate pickUpDate, LocalDate returnDate) {
+		Period noOfDays= Period.between(pickUpDate,returnDate);
+		
+		long totalAmount= noOfDays.getDays()*costPerDay;
+//		System.out.println(totalAmount);
+		return totalAmount;
+	}
 	
 
 	

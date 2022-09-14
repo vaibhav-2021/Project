@@ -11,4 +11,5 @@ public interface ICarService {
  List<Car> findAllCars();
  List<Car> findAvailableCars(Long locId);
  Long bookCar(BookingDto bookingDto,Long carId,Long custId);
+ Car findCarById(Long id);
 }

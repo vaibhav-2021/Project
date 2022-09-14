@@ -16,6 +16,9 @@ import AddLocation from "./Component/admin/addLocation";
 import ViewAllCars from "./Component/admin/viewAllCars";
 import ViewAllCustomers from "./Component/admin/viewAllCustomers";
 import ViewAllBookings from "./Component/admin/viewAllBookings";
+import SearchCars from "./Component/user/searchCar";
+import Home from "./Component/user/home";
+import BookingCart from "./Component/user/bookingCart";
 function App() {
   return (
     <div className="App">
@@ -33,6 +36,9 @@ function App() {
           <Route path="/admin/addLocation" element={<AddLocation />} />
           <Route path="/admin/viewallcars" element={<ViewAllCars />} />
           <Route path="/admin/viewallbookings" element={<ViewAllBookings />} />
+          <Route path="/customer/searchcar" element={<SearchCars />} />
+          <Route path="/customer/bookingcart" element={<BookingCart />} />
+          <Route path="/" element={<Home />} />
           <Route
             path="/admin/viewallcustomers"
             element={<ViewAllCustomers />}

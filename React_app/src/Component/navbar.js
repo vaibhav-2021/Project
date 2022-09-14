@@ -60,11 +60,11 @@ const Navbar = () => {
                   aria-current="page"
                   to="/user/profile"
                 >
-                  Profile
+                  User Profile
                 </Link>
               </li>
             )}
-            {!userStatus && (
+            {adminStatus && (
               <li className="nav-item">
                 <Link
                   style={{ color: "white" }}
@@ -72,7 +72,19 @@ const Navbar = () => {
                   aria-current="page"
                   to="/admin/adminProfile"
                 >
-                  Admin
+                  Admin Profile
+                </Link>
+              </li>
+            )}
+            {!adminStatus && !userStatus && (
+              <li className="nav-item">
+                <Link
+                  style={{ color: "white" }}
+                  className="nav-link active"
+                  aria-current="page"
+                  to="/admin/signin"
+                >
+                  AdminSignin
                 </Link>
               </li>
             )}
@@ -103,22 +115,22 @@ const Navbar = () => {
                 </button>
               )}
             </li>
-            }
-            <li>
-              {adminStatus && (
-                <button
-                  style={{ textDecoration: "none", color: "white" }}
-                  onClick={() => {
-                    navigate("/admin/signin");
-                    dispatch(adminSignout());
-                  }}
-                  className="btn btn-link"
-                  aria-current="page"
-                >
-                  Signout
-                </button>
-              )}
-            </li>
+            {
+              <li>
+                {adminStatus && (
+                  <button
+                    style={{ textDecoration: "none", color: "white" }}
+                    onClick={() => {
+                      navigate("/admin/signin");
+                      dispatch(adminSignout());
+                    }}
+                    className="btn btn-link"
+                    aria-current="page"
+                  >
+                    Signout
+                  </button>
+                )}
+              </li>
             }
           </ul>
         </div>
@@ -126,4 +138,5 @@ const Navbar = () => {
     </nav>
   );
 };
+
 export default Navbar;

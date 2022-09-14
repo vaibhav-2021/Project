@@ -20,7 +20,7 @@ const ViewAllBookings = () => {
         const result = response.data;
         if (result !== null) {
           console.log(result);
-          //   setLocation(result);
+          setLocation(result);
         }
       });
   };
@@ -29,7 +29,7 @@ const ViewAllBookings = () => {
       const result = response.data;
       if (result !== null) {
         console.log(result.actualReturnDate);
-        // setBilling(result);
+        setBilling(result);
       }
     });
   };
@@ -75,8 +75,8 @@ const ViewAllBookings = () => {
         </thead>
         <tbody>
           {bookings.map((booking) => {
-            const bill = getBillById(booking.bookingId);
-            const loc = getLocationsById(booking.pickUpLocId);
+            getBillById(booking.bookingId);
+            getLocationsById(booking.pickUpLocId);
             return (
               <tr key={booking.bookingId}>
                 <td>{booking.bookingId}</td>
@@ -85,17 +85,18 @@ const ViewAllBookings = () => {
                     " " +
                     booking.customerId.lastName}
                 </td>
+                <td>{booking.carId.modelName}</td>
                 <td>{booking.carId.registrationNo}</td>
                 <td>{booking.carId.carCategoryId.carCategoryName}</td>
                 <td>{booking.pickUpDate}</td>
-                {/* <td>{getBillById(booking.bookingId).actualReturnDate}</td> */}
-                <td>{loc.}</td>
-                <td>{loc}</td>
+                <td>{billing.actualReturnDate}</td>
+                {/* <td>{}</td> */}
+                <td>{location.actualReturnDate}</td>
                 <td>{booking.bookingStatus}</td>
-                <td>{bill.billingDate}</td>
-                <td>{bill.lateFees}</td>
-                <td>{bill.totalAmount}</td>
-                <td>{bill.billingStatus}</td>
+                <td>{billing.billingDate}</td>
+                <td>{billing.lateFees}</td>
+                <td>{billing.totalAmount}</td>
+                <td>{billing.billingStatus}</td>
               </tr>
             );
           })}

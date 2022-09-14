@@ -121,6 +121,12 @@ public class CarServiceImp implements ICarService {
 			 
 				
 	}
+
+	@Override
+	public Car findCarById(Long id) {
+		
+		return carRepo.findById(id).orElseThrow(()-> new ResourceNotFoundException("Invalid Car Id"));
+	}
 	
 	
 

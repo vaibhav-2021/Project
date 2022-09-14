@@ -1,5 +1,7 @@
 package com.carRental.app.controller;
 
+import java.time.LocalDate;
+
 import javax.validation.Valid;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -101,7 +103,15 @@ public class CustomerController {
 	public ResponseEntity<?> getCustomerById(@PathVariable Long custId){
 		return ResponseEntity.ok().body(custService.getCutomerById(custId));
 	}
-	
+	@GetMapping("/getcarbyid/{carId}")
+	public ResponseEntity<?> getCarById(@PathVariable Long carId){
+		return ResponseEntity.ok().body(carService.findCarById(carId));
+	}
+	@GetMapping("/getTotalAmount/{costPerDay}")
+	public ResponseEntity<?> getCarById(@PathVariable Long costPerDay, @RequestBody BookingDto date ){
+		
+		return ResponseEntity.ok().body(custService.getTotalAmount(costPerDay,date.getPickUpDate(),date.getReturnDate()));
+	}
 	
 
 }
