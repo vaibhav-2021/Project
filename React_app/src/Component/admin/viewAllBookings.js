@@ -13,26 +13,6 @@ const ViewAllBookings = () => {
     getallBookings();
   }, []);
 
-  const getLocationsById = (locationid) => {
-    axios
-      .get(config.URL + "/admin/getlocationbyid/" + locationid)
-      .then((response) => {
-        const result = response.data;
-        if (result !== null) {
-          console.log(result);
-          setLocation(result);
-        }
-      });
-  };
-  const getBillById = (id) => {
-    axios.get(config.URL + "/admin/getbillbyid/" + id).then((response) => {
-      const result = response.data;
-      if (result !== null) {
-        console.log(result.actualReturnDate);
-        setBilling(result);
-      }
-    });
-  };
   const getallBookings = () => {
     axios
       .get(config.URL + "/admin/getallbookings")
@@ -65,7 +45,7 @@ const ViewAllBookings = () => {
             <th>pickUp Date</th>
             <th>Actual return Date</th>
             <th>Pickup Location</th>
-            <th>Drop Location</th>
+            {/* <th>Drop Location</th> */}
             <th>Booking Status</th>
             <th>Billing Date</th>
             <th>Late Fees</th>
@@ -75,28 +55,27 @@ const ViewAllBookings = () => {
         </thead>
         <tbody>
           {bookings.map((booking) => {
-            getBillById(booking.bookingId);
-            getLocationsById(booking.pickUpLocId);
             return (
-              <tr key={booking.bookingId}>
-                <td>{booking.bookingId}</td>
+              <tr key={booking[0].bookingId}>
+                <td>{booking[0].bookingId}</td>
                 <td>
-                  {booking.customerId.firstName +
+                  {booking[0].customerId.firstName +
                     " " +
-                    booking.customerId.lastName}
+                    booking[0].customerId.lastName}
                 </td>
-                <td>{booking.carId.modelName}</td>
-                <td>{booking.carId.registrationNo}</td>
-                <td>{booking.carId.carCategoryId.carCategoryName}</td>
-                <td>{booking.pickUpDate}</td>
-                <td>{billing.actualReturnDate}</td>
-                {/* <td>{}</td> */}
-                <td>{location.actualReturnDate}</td>
-                <td>{booking.bookingStatus}</td>
-                <td>{billing.billingDate}</td>
-                <td>{billing.lateFees}</td>
-                <td>{billing.totalAmount}</td>
-                <td>{billing.billingStatus}</td>
+                <td>{booking[0].carId.modelName}</td>
+                <td>{booking[0].carId.registrationNo}</td>
+                <td>{booking[0].carId.carCategoryId.carCategoryName}</td>
+                <td>{booking[0].pickUpDate}</td>
+
+                <td>{booking[1].actualReturnDate}</td>
+                <td>{booking[1].bookingId.carId.locationId.locationName}</td>
+                {/* <td>{location.actualReturnDate}</td> */}
+                <td>{booking[0].bookingStatus}</td>
+                <td>{booking[1].billingDate}</td>
+                <td>{booking[1].lateFees}</td>
+                <td>{booking[1].totalAmount}</td>
+                <td>{booking[1].billingStatus}</td>
               </tr>
             );
           })}

@@ -9,10 +9,10 @@
 		<relativePath/> <!-- lookup parent from repository -->
 	</parent>
 	<groupId>com.CarRental_1</groupId>
-	<artifactId>CarRental_1</artifactId>
+	<artifactId>CarRental_backend</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
-	<name>CarRental_1</name>
-	<description>Demo project for Spring Boot</description>
+	<name>CarRental_Backend</name>
+	<description>car project</description>
 	<properties>
 		<java.version>11</java.version>
 	</properties>

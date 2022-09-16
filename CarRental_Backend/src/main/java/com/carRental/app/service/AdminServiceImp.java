@@ -46,14 +46,14 @@ public class AdminServiceImp implements IAdminService {
 		 
 	}
 	@Override
-	public List<BookingDto> getAllBookings() {
+	public List<?> getAllBookings() {
 
 		//String bookingstatus = "Booked";
-		List<Booking> bookingList = bookingRepo.findAll();
-		List<BookingDto> bookingsDtoList = bookingList.stream()
-				.map((booking) -> modelMapper.map(booking, BookingDto.class)).collect(Collectors.toList());
-		// System.out.println(bookingList);
-		return bookingsDtoList;
+//		List<?> bookingList = bookingRepo.findBookingBillingLoc();
+//		List<BookingDto> bookingsDtoList = bookingList.stream()
+//				.map((booking) -> modelMapper.map(booking, BookingDto.class)).collect(Collectors.toList());
+//		// System.out.println(bookingList);
+		return bookingRepo.findBookingBillingLoc();
 	}
 	@Override
 	public List<CarCategory> getAllCarCategory() {

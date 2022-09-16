@@ -3,6 +3,7 @@ package com.carRental.app.dao;
 import java.util.List;
 
 import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.data.jpa.repository.Query;
 
 import com.carRental.app.Entities.Booking;
 import com.carRental.app.Entities.Customer;
@@ -16,5 +17,7 @@ public interface BookingRepository extends JpaRepository<Booking,Long> {
 	List<Booking> findByBookingStatusAndCustomerId(String bookingstatus,Customer customerId);
 	//all  Old Bookings
 	List<Booking> findByBookingStatusNotAndCustomerId(String bookingstatus,Customer customerId);
-	
+	@Query("select bo ,bi from Billing bi inner join bi.bookingId bo ")
+	List<?> findBookingBillingLoc();
+
 }

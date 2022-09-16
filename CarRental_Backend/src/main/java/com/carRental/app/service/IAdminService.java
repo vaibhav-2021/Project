@@ -9,6 +9,6 @@ import com.carRental.app.dto.LoginDto;
 
 public interface IAdminService {
 	Admin adminSigin(LoginDto login);
-	List<BookingDto> getAllBookings();
+	List<?> getAllBookings();
 	List<CarCategory> getAllCarCategory();
 }
