@@ -21,6 +21,7 @@ import com.carRental.app.dto.BookingDto;
 import com.carRental.app.dto.CustomerDto;
 import com.carRental.app.dto.FeedbackDto;
 import com.carRental.app.dto.LoginDto;
+import com.carRental.app.dto.ReplyDto;
 import com.carRental.app.service.IAdminService;
 import com.carRental.app.service.ICustomerService;
 import com.carRental.app.service.IFeedbackService;
@@ -56,10 +57,12 @@ public class AdminController {
 		return custServ.getAllCustomer();
 	}
 	@PutMapping("/replyfeedback/{custId}/{bookingId}")
-	public ResponseEntity<?> addFeedback(@RequestBody  @Valid FeedbackDto reply,@PathVariable Long custId,@PathVariable  Long bookingId){
+	public ResponseEntity<?> addFeedback(@RequestBody  @Valid ReplyDto reply,@PathVariable Long custId,@PathVariable  Long bookingId){
 		System.out.println(" Feedback Contoller"+custId +""+ bookingId);
 		return ResponseEntity.ok().body(feedbackService.addReply(reply ,bookingId , custId));
 	}
+	
+	
 	
 	@GetMapping("/getallbookings")
 	public List<?> getAllBookings(){
@@ -79,4 +82,10 @@ public class AdminController {
 	public ResponseEntity<?> getBillById(@PathVariable Long bookingId){
 		return ResponseEntity.ok().body(custServ.findBillByBookingId(bookingId));
 	}
+	
+	@GetMapping("/getallfeedbacks")
+	public ResponseEntity<?> getAllFeedBacks(){
+		return ResponseEntity.ok().body(feedbackService.getAllFeedBacks());
+	}
+	
 }

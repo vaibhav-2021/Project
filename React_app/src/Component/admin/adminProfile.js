@@ -27,6 +27,9 @@ const adminProfile = () => {
       <Link className="nav-link active" to="/admin/viewAllBookings">
         View All Bookings
       </Link>
+      <Link className="nav-link active" to="/admin/ViewAllFeedbacks">
+        View All FeedBacks
+      </Link>
     </div>
   );
 };

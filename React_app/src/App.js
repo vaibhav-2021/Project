@@ -24,6 +24,8 @@ import MyBookings from "./Component/user/myBookings";
 import FinalBill from "./Component/user/finalBillDetails";
 import OldBookings from "./Component/user/oldBookings";
 import Addfeedback from "./Component/user/addFeedBack";
+import ViewFeedBacks from "./Component/admin/viewAllFeedbacks";
+import Replyfeedback from "./Component/admin/feedBackReply";
 function App() {
   return (
     <div className="App">
@@ -50,8 +52,8 @@ function App() {
           <Route path="/user/finalBilling"element={<FinalBill/>}/>
           <Route path="/user/MyOldBookings"element={<OldBookings/>}/>
           <Route path="/user/AddFeedBack"element={<Addfeedback/>}/>
-
-
+          <Route path="/admin/ViewAllFeedbacks"element={<ViewFeedBacks/>}/>
+          <Route path="/admin/replyFeedback"element={<Replyfeedback/>}/>
 
 
         </Routes>

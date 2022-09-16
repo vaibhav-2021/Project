@@ -1,6 +1,8 @@
 package com.carRental.app.service;
 
+import java.util.List;
 import java.util.Optional;
+import java.util.stream.Collectors;
 
 import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -15,9 +17,10 @@ import com.carRental.app.dao.BookingRepository;
 import com.carRental.app.dao.CustomerRepository;
 import com.carRental.app.dao.FeedbacksRepository;
 import com.carRental.app.dto.FeedbackDto;
+import com.carRental.app.dto.ReplyDto;
 @Service
 @Transactional
-public class FeddbackImpl implements IFeedbackService {
+public class FeedbackImpl implements IFeedbackService {
 
 	@Autowired
 	private FeedbacksRepository feedbackRepo;
@@ -43,7 +46,7 @@ public class FeddbackImpl implements IFeedbackService {
 
 
 	@Override
-	public long addReply(FeedbackDto reply, Long bookingId, Long custId) {
+	public long addReply(ReplyDto reply, Long bookingId, Long custId) {
 		System.out.println( reply.getReply());
 		Customer customer = customerRepo.findById(custId).orElseThrow(()->new ResourceNotFoundException("Invalid customer Id"));
 		Booking booking = bookingRepo.findById(bookingId).orElseThrow(()->new ResourceNotFoundException("Invalid bookingId Id"));
@@ -57,4 +60,12 @@ public class FeddbackImpl implements IFeedbackService {
 		return savedfeedBack.getFId();
 	}
 
+
+	@Override
+	public List<FeedbackDto> getAllFeedBacks() {
+		
+		return feedbackRepo.findAll().stream().map((feedback)->modelMapper.map(feedback, FeedbackDto.class)).collect(Collectors.toList());
+	}
+
+	
 }
