@@ -62,7 +62,7 @@ public class AdminController {
 	}
 	
 	@GetMapping("/getallbookings")
-	public List<BookingDto> getAllBookings(){
+	public List<?> getAllBookings(){
 		return adminServ.getAllBookings();
 	}
 	
