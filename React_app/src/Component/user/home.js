@@ -7,7 +7,7 @@ import { useNavigate } from "react-router-dom";
 const Home = () => {
   const navigate = useNavigate();
   const [locationId, setLocationId] = useState("");
-
+  sessionStorage.locId=locationId;
   const [locations, setLocations] = useState([]);
 
   useEffect(() => {
@@ -26,21 +26,24 @@ const Home = () => {
 
   return (
     <div
-      className="row"
-      style={{
-        margin: "auto",
-        height: 350,
-        width: "90%",
-        marginTop: 50,
-        boxShadow: "1px 1px 20px 5px gray",
-      }}
+    className="row"
+    style={{
+      margin: "auto",
+      height: 350,
+      width: "90%",
+      marginTop: 50,
+      boxShadow: "1px 1px 20px 5px gray",
+    }}
+   
     >
       <h2 style={{ color: "blue", textAlign: "center", margin: 20 }}>
         Search Cars
       </h2>
 
-      <label style={{ marginRight: 20 }}>Car Location</label>
-      <select
+    <div className="row-4">
+    <label style={{ marginRight: 20 }}>Car Location</label>
+     
+     <select
         className="mb-3"
         onChange={(e) => {
           setLocationId(e.target.value);
@@ -55,17 +58,23 @@ const Home = () => {
           );
         })}
       </select>
-      <div className="col-4">
+    </div>
+
+      <div className="row-4">
         <button
           onClick={() =>
             navigate("/customer/searchcar", {
               state: { locationId: locationId },
+              
             })
+            
           }
         >
           Find Car
         </button>
+        
       </div>
+      <div className='row-4'></div>
       <br />
     </div>
   );

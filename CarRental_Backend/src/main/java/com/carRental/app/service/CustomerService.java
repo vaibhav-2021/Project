@@ -192,13 +192,31 @@ public class CustomerService implements ICustomerService {
 	}
 
 	@Override
-	public Long getTotalAmount(Long costPerDay, LocalDate pickUpDate, LocalDate returnDate) {
-		Period noOfDays= Period.between(pickUpDate,returnDate);
+	public Long getTotalAmount(Long costPerDay,LocalDate returnDate) {
+		Period checkReturnDate=Period.between(LocalDate.now(),returnDate);
 		
-		long totalAmount= noOfDays.getDays()*costPerDay;
-//		System.out.println(totalAmount);
-		return totalAmount;
+		if(checkReturnDate.getDays()>=0) {
+			Period noOfDays= Period.between(LocalDate.now(),returnDate);
+			
+			//System.out.println(returnDate);
+			//System.out.println("No Of Days = "+ noOfDays.getDays());
+			if(noOfDays.getDays()==0) {
+				return costPerDay;
+			}
+			long totalAmount= (noOfDays.getDays()+1)*costPerDay;
+//			System.out.println(totalAmount);
+			return totalAmount;
+		}
+		return 0l;
 	}
+
+	@Override
+	public BookingDto getBookingById(Long bookingId) {
+		Booking booking = bookingRepo.findById(bookingId).orElseThrow(()-> new ResourceNotFoundException("Invalid BookingId"));;
+		return modelMapper.map(booking, BookingDto.class);
+	}
+	
+	
 	
 
 	

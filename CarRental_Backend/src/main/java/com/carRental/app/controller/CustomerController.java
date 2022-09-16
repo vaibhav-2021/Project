@@ -21,9 +21,11 @@ import com.carRental.app.dto.BookingDto;
 import com.carRental.app.dto.CustomerDto;
 import com.carRental.app.dto.FeedbackDto;
 import com.carRental.app.dto.LoginDto;
+import com.carRental.app.service.ICarCategoryService;
 import com.carRental.app.service.ICarService;
 import com.carRental.app.service.ICustomerService;
 import com.carRental.app.service.IFeedbackService;
+import com.carRental.app.service.ILocationService;
 
 @RestController
 @RequestMapping("/customer")
@@ -37,6 +39,10 @@ public class CustomerController {
 	private IFeedbackService feedbackService;
 	@Autowired
 	private ICarService carService;
+	@Autowired
+	private ILocationService locServ;
+	@Autowired
+	private ICarCategoryService carCatServ;
 
 	//Add new Customer
 	@PostMapping("/add")
@@ -107,11 +113,26 @@ public class CustomerController {
 	public ResponseEntity<?> getCarById(@PathVariable Long carId){
 		return ResponseEntity.ok().body(carService.findCarById(carId));
 	}
-	@GetMapping("/getTotalAmount/{costPerDay}")
+	@PostMapping("/getTotalAmount/{costPerDay}")
 	public ResponseEntity<?> getCarById(@PathVariable Long costPerDay, @RequestBody BookingDto date ){
 		
-		return ResponseEntity.ok().body(custService.getTotalAmount(costPerDay,date.getPickUpDate(),date.getReturnDate()));
+		return ResponseEntity.ok().body(custService.getTotalAmount(costPerDay,date.getReturnDate()));
 	}
+	@GetMapping("/getlocationbyid/{id}")
+	public ResponseEntity<?> findLocationById(@PathVariable Long id) {
+		return ResponseEntity.status(HttpStatus.CREATED).body(locServ.findByLocationId(id));
+	}
+	
+	@GetMapping("/getcarcatbyid/{id}")
+	public ResponseEntity<?> findCarCatById(@PathVariable Long id) {
+		return ResponseEntity.status(HttpStatus.CREATED).body(carCatServ.findCatById(id));
+	}
+	
+	@GetMapping("/getbookingbyid/{id}")
+	public ResponseEntity<?> findBookingById(@PathVariable Long id) {
+		return ResponseEntity.status(HttpStatus.CREATED).body(custService.getBookingById(id));
+	}
+	
 	
 
 }

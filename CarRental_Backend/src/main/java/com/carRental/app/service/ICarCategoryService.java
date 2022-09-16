@@ -4,4 +4,5 @@ import com.carRental.app.Entities.CarCategory;
 
 public interface ICarCategoryService {
 Long addCategory(CarCategory category);
+CarCategory findCatById(Long catId);
 }

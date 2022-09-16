@@ -100,7 +100,7 @@ public class CarServiceImp implements ICarService {
 						 //if same day return than min 1 day fare will be charged
 						 differnce=1;
 					 }
-					 double totalAmount= differnce* (car.getCarCategoryId().getCostPerDay());
+					 double totalAmount= (differnce+1)* (car.getCarCategoryId().getCostPerDay());
 					Billing billingEntity = new Billing();
 					billingEntity.setActualReturnDate(bookingEntity.getReturnDate());
 					billingEntity.setTotalAmount(totalAmount);

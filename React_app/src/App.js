@@ -19,6 +19,7 @@ import ViewAllBookings from "./Component/admin/viewAllBookings";
 import SearchCars from "./Component/user/searchCar";
 import Home from "./Component/user/home";
 import BookingCart from "./Component/user/bookingCart";
+import BillingDetails from "./Component/user/billingDetails";
 function App() {
   return (
     <div className="App">
@@ -39,10 +40,8 @@ function App() {
           <Route path="/customer/searchcar" element={<SearchCars />} />
           <Route path="/customer/bookingcart" element={<BookingCart />} />
           <Route path="/" element={<Home />} />
-          <Route
-            path="/admin/viewallcustomers"
-            element={<ViewAllCustomers />}
-          />
+          <Route path="/admin/viewallcustomers"element={<ViewAllCustomers />}/>
+          <Route path="/user/bookingDetails"element={<BillingDetails/>}/>
         </Routes>
         <ToastContainer />
       </BrowserRouter>

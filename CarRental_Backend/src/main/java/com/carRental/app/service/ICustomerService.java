@@ -20,5 +20,7 @@ public interface ICustomerService {
  
  String submitCar(Long bookingId);
  Billing findBillByBookingId(Long bookingId);
- Long getTotalAmount(Long costPerDay,LocalDate pickUpDate,LocalDate returnDate);
+ Long getTotalAmount(Long costPerDay,LocalDate returnDate);
+ 
+ BookingDto getBookingById(Long bookingId);
 }
