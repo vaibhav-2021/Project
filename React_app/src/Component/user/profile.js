@@ -4,7 +4,9 @@ const Profile = () => {
   return (
     <div>
       <Link className="nav-link active" to="/user/update">Update Profil</Link>
-      <Link className="nav-link active" to="/user/myBookings">View My Bookings</Link>
+      <Link className="nav-link active" to="/user/myBookings">View My Current Bookings</Link>
+      <Link className="nav-link active" to="/user/MyOldBookings">View My Old Bookings</Link>
+
     </div>
   );
 };

@@ -21,6 +21,9 @@ import Home from "./Component/user/home";
 import BookingCart from "./Component/user/bookingCart";
 import BillingDetails from "./Component/user/billingDetails";
 import MyBookings from "./Component/user/myBookings";
+import FinalBill from "./Component/user/finalBillDetails";
+import OldBookings from "./Component/user/oldBookings";
+import Addfeedback from "./Component/user/addFeedBack";
 function App() {
   return (
     <div className="App">
@@ -44,6 +47,12 @@ function App() {
           <Route path="/admin/viewallcustomers"element={<ViewAllCustomers />}/>
           <Route path="/user/bookingDetails"element={<BillingDetails/>}/>
           <Route path="/user/myBookings"element={<MyBookings/>}/>
+          <Route path="/user/finalBilling"element={<FinalBill/>}/>
+          <Route path="/user/MyOldBookings"element={<OldBookings/>}/>
+          <Route path="/user/AddFeedBack"element={<Addfeedback/>}/>
+
+
+
 
         </Routes>
         <ToastContainer />

@@ -13,7 +13,7 @@ public interface ICustomerService {
  CustomerDto customerSignIn(LoginDto login);
  List<CustomerDto> getAllCustomer();
  CustomerDto updateProfile(CustomerDto CustomerDto,Long custId);
- List<BookingDto> getOldBookings(Long customerId);
+ List<?> getOldBookings(Long customerId);
  List<?> getCurrentBookings(Long customerId);
  String cancelCarBooking(Long bookingId);
  CustomerDto getCutomerById(Long custId);

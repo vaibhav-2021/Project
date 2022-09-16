@@ -28,13 +28,12 @@ const Home = () => {
   const keepSignedIN=()=>{
     console.log(sessionStorage.token>0)
     console.log(userStatus)
-    if(sessionStorage.token!==null){
-     
-     
+    
       if (sessionStorage.token==="Admin"){
         dispatch(adminSignin(sessionStorage.token))
       }
-      else if(!userStatus){
+      if(sessionStorage.token>0){
+       if(!userStatus){
         dispatch(custSignin(sessionStorage.token))
       }
     }

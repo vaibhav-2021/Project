@@ -5,7 +5,7 @@ import { toast } from "react-toastify";
 import { useNavigate } from "react-router-dom";
 
 
-const MyBookings=()=>{
+const OldBookings=()=>{
     const [bookings,setBookings]=useState([]);
     const navigate = useNavigate();
     useEffect(()=>{
@@ -13,7 +13,7 @@ const MyBookings=()=>{
     },[])
 
     const getCurrentBookings=()=>{
-        axios.get(Config.URL+"/customer/getcurrentbookings/"+sessionStorage.token)
+        axios.get(Config.URL+"/customer/getoldbookings/"+sessionStorage.token)
         .then((response)=>{
             const result=response.data;
             if(result!=null){
@@ -22,24 +22,6 @@ const MyBookings=()=>{
             }
         }).catch((e)=>{
             toast.error("No Booking Available!!")
-        })
-    }
-
-    
-
-    const cancelBooking=(bookId)=>{
-        axios.put(Config.URL+"/customer/cancelbooking/"+bookId)
-        .then((response)=>{
-            const result=response.data;
-            console.log(result)
-            if(result!==null){
-                toast.success("Booking Cancelled")
-                getCurrentBookings();
-            }
-        }).catch((e)=>{
-            toast.error("Cancellation Period Over!!")
-            
-            
         })
     }
 
@@ -89,8 +71,8 @@ const MyBookings=()=>{
                 <td>{booking[1].totalAmount}</td>
                 <td>{booking[1].billingStatus}</td>
                 {/* <td><button onClick={()=>{submitCar(booking[0].bookingId)}} className="btn btn-sm btn-success">Submit</button></td> */}
-                <td><button onClick={()=>{navigate("/user/finalBilling",{state:{bookingId:booking[0].bookingId}})}} className="btn btn-sm btn-success">Submit</button></td> 
-                <td><button onClick={()=>{cancelBooking(booking[0].bookingId)}} className="btn btn-sm btn-danger">Cancel</button></td>
+                <td><button onClick={()=>{navigate("/user/AddFeedBack",{state:{bookingId:booking[0].bookingId}})}} className="btn btn-sm btn-primary">FeedBack</button></td> 
+                {/* <td><button onClick={()=>{cancelBooking(booking[0].bookingId)}} className="btn btn-sm btn-danger">Cancel</button></td> */}
 
               </tr>
             );
@@ -124,4 +106,4 @@ const styles = {
       marginRight: 10,
     },
   };
-export default MyBookings;
+export default OldBookings;

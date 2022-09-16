@@ -90,16 +90,16 @@ public class CustomerService implements ICustomerService {
 	}
 
 	@Override
-	public List<BookingDto> getOldBookings(Long customerId) {
+	public List<?> getOldBookings(Long customerId) {
 
 		Customer customer = custRepo.findById(customerId)
 				.orElseThrow(() -> new ResourceNotFoundException("Invalid Customer!!"));
 		String bookingstatus = "Booked";
-		List<Booking> bookingList = bookingRepo.findByBookingStatusNotAndCustomerId(bookingstatus, customer);
-		List<BookingDto> bookingsDtoList = bookingList.stream()
-				.map((booking) -> modelMapper.map(booking, BookingDto.class)).collect(Collectors.toList());
+//		List<Booking> bookingList = bookingRepo.findByBookingStatusNotAndCustomerId(bookingstatus, customer);
+//		List<BookingDto> bookingsDtoList = bookingList.stream()
+//				.map((booking) -> modelMapper.map(booking, BookingDto.class)).collect(Collectors.toList());
 		// System.out.println(bookingList);
-		return bookingsDtoList;
+		return bookingRepo.getByBookingBillingStatusNotAndCustomerId( customer,bookingstatus);
 	}
 
 	@Override
@@ -145,7 +145,7 @@ public class CustomerService implements ICustomerService {
 		return "Booking cancelled ";
 		
 		}else
-			return "Car Cancellation period is over";
+			throw new ResourceNotFoundException("Cancellation Period Over");
 			
 	}
 
