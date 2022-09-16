@@ -9,7 +9,8 @@ const adminSlice=createSlice({
             state.AdminStatus= true
             console.log("Inside admin slice "+state.AdminStatus)
             console.log("inside admin Slice "+action.payload)
-            sessionStorage.token=action.payload
+            sessionStorage.token="Admin"
+
         },
 
         adminSignout:(state,action)=>{
