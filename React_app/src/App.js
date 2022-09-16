@@ -20,6 +20,7 @@ import SearchCars from "./Component/user/searchCar";
 import Home from "./Component/user/home";
 import BookingCart from "./Component/user/bookingCart";
 import BillingDetails from "./Component/user/billingDetails";
+import MyBookings from "./Component/user/myBookings";
 function App() {
   return (
     <div className="App">
@@ -42,6 +43,8 @@ function App() {
           <Route path="/" element={<Home />} />
           <Route path="/admin/viewallcustomers"element={<ViewAllCustomers />}/>
           <Route path="/user/bookingDetails"element={<BillingDetails/>}/>
+          <Route path="/user/myBookings"element={<MyBookings/>}/>
+
         </Routes>
         <ToastContainer />
       </BrowserRouter>

@@ -9,6 +9,7 @@ const ViewAllBookings = () => {
   const [location, setLocation] = useState([]);
   const [billing, setBilling] = useState([]);
   const navigate = useNavigate();
+  
   useEffect(() => {
     getallBookings();
   }, []);

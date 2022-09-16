@@ -3,16 +3,42 @@ import axios from "axios";
 import Config from "../../config";
 import { toast } from "react-toastify";
 import { useNavigate } from "react-router-dom";
+import { useDispatch, useSelector } from "react-redux";
+import { adminSignin } from "../../slice/adminSlice";
+import { custSignin } from "../../slice/customerSlice";
 
 const Home = () => {
   const navigate = useNavigate();
   const [locationId, setLocationId] = useState("");
   sessionStorage.locId=locationId;
   const [locations, setLocations] = useState([]);
+  const dispatch=useDispatch();
+  //selector=useSelector()
+  const userStatus = useSelector((state) => state.customerSlice.CustStatus);
+  const adminStatus = useSelector((state) => state.adminSlice.AdminStatus);
+
 
   useEffect(() => {
+ 
     getLocations();
+    keepSignedIN();
+    
   }, []);
+
+  const keepSignedIN=()=>{
+    console.log(sessionStorage.token>0)
+    console.log(userStatus)
+    if(sessionStorage.token!==null){
+     
+     
+      if (sessionStorage.token==="Admin"){
+        dispatch(adminSignin(sessionStorage.token))
+      }
+      else if(!userStatus){
+        dispatch(custSignin(sessionStorage.token))
+      }
+    }
+  }
 
   const getLocations = () => {
     axios.get(Config.URL + "/admin/getalllocations").then((response) => {
