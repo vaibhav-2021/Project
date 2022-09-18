@@ -52,7 +52,9 @@ const Navbar = () => {
                 Home
               </Link>
             </li>
-            {userStatus && (
+
+
+            {/* {userStatus && (
               <li>
                 <Link
                   style={{ color: "white" }}
@@ -63,8 +65,25 @@ const Navbar = () => {
                   User Profile
                 </Link>
               </li>
-            )}
-            {adminStatus && (
+            )} */}
+
+
+            {userStatus &&  <li>
+                  <div className="dropdown">
+                  <button style={{ textDecoration: "none", color: "white" }} className="btn btn-link" aria-current="page" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+                  Profile
+                  </button>
+                  <ul className="dropdown-menu">
+                  <li><Link style={{color:"blue"}} className="dropdown-item" to="/user/update">Update Profile</Link></li>
+                  <li><Link style={{color:"blue"}} className="dropdown-item" to="/user/myBookings">My Bookings</Link></li>
+                  <li><Link style={{color:"blue"}} className="dropdown-item" to="/user/MyOldBookings">My Old Bookings</Link></li>
+                  </ul>
+                  </div>
+                  </li>
+
+            }
+
+            {/* {adminStatus && (
               <li className="nav-item">
                 <Link
                   style={{ color: "white" }}
@@ -75,7 +94,29 @@ const Navbar = () => {
                   Admin Profile
                 </Link>
               </li>
-            )}
+            )} */}
+
+               {adminStatus &&  <li>
+                  <div className="dropdown">
+                  <button style={{ textDecoration: "none", color: "white" }} className="btn btn-link" aria-current="page" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+                  Admin
+                  </button>
+                  <ul className="dropdown-menu">
+                  <li><Link style={{color:"blue"}} className="dropdown-item" to="/admin/addCar">Add Car</Link></li>
+                  <li><Link style={{color:"blue"}} className="dropdown-item" to="/admin/addCarCategory">Add Categopry</Link></li>
+                  <li><Link style={{color:"blue"}} className="dropdown-item" to="/admin/addLocation">Add Location</Link></li>
+                  <li><Link style={{color:"blue"}} className="dropdown-item" to="/admin/viewAllCars">View All Cars</Link></li>
+                  <li><Link style={{color:"blue"}} className="dropdown-item" to="/admin/viewAllCustomers">View All Customers</Link></li>
+                  <li><Link style={{color:"blue"}} className="dropdown-item" to="/admin/viewAllBookings">View All Bookings</Link></li>
+                  <li><Link style={{color:"blue"}} className="dropdown-item" to="/admin/ViewAllFeedbacks">View All FeedBacks</Link></li>
+                  </ul>
+                  </div>
+                  </li>
+
+            }
+
+
+
             {!adminStatus && !userStatus && (
               <li className="nav-item">
                 <Link
@@ -88,18 +129,7 @@ const Navbar = () => {
                 </Link>
               </li>
             )}
-            {/* {adminStatus && (
-              <li className="nav-item">
-                <Link
-                  style={{ color: "white" }}
-                  className="nav-link active"
-                  aria-current="page"
-                  to="/admin/addCar"
-                >
-                  Add Car
-                </Link>
-              </li>
-            )} */}
+            
             <li>
               {userStatus && (
                 <button

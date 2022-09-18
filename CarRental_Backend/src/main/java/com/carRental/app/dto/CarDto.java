@@ -25,6 +25,7 @@ public class CarDto {
 	private String modelType;
 	private Long carCategoryId;
 	private Long locationId;
+	
 	@JsonProperty(access = Access.READ_ONLY)
 	private String carImage;
 }

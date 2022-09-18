@@ -1,7 +1,12 @@
 package com.carRental.app.service;
 
+import java.io.IOException;
+import java.nio.file.Files;
+import java.nio.file.Paths;
 import java.time.LocalDate;
 import java.time.Period;
+import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 import java.util.Optional;
 
@@ -64,11 +69,22 @@ public class CarServiceImp implements ICarService {
 	}
 
 	@Override
-	public List<Car> findAvailableCars(Long locationId) {
+	public List<Car> findAvailableCars(Long locationId) throws IOException {
 		boolean status=true;
 		Location locId1=locRepo.findById(locationId).orElseThrow(()-> new ResourceNotFoundException("Invalid Location"));
+		List<Car> availableCar = carRepo.findByLocationIdAndAvailableFlag(locId1, status);
 		
-		return carRepo.findByLocationIdAndAvailableFlag(locId1, status);
+		return availableCar;
+	}
+	
+	@Override
+	public byte[] getCarImageById(Long carId) throws IOException {
+		Car car = carRepo.findById(carId).orElseThrow(()-> new ResourceNotFoundException("Invalid carId"));
+	
+		if(car.getCarImage()!=null) {
+			return Files.readAllBytes(Paths.get(car.getCarImage()));
+		}
+		return null;
 	}
 
 	@Override
