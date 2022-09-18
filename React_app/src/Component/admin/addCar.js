@@ -3,6 +3,7 @@ import axios from "axios";
 import Config from "../../config";
 import { toast } from "react-toastify";
 import Input from "../Input";
+import { useNavigate } from "react-router-dom";
 
 const AddCar = () => {
   const [registrationNo, setRegisNo] = useState("");
@@ -16,6 +17,7 @@ const AddCar = () => {
 
   const [locations, setLocations] = useState([]);
   const [carCat, setCarCat] = useState([]);
+  const navigate=useNavigate();
 
   useEffect(() => {
     getLocations();
@@ -60,6 +62,8 @@ const AddCar = () => {
         const result = response.data;
         if (result !== null) {
           toast.success("Car Added");
+
+          navigate("/admin/uploadCarImage",{state:{carId:result}});
         } else {
           toast.error("Adding failed");
         }

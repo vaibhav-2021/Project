@@ -126,7 +126,7 @@ const MyBookings = () => {
           style={styles.button}
           className="btn btn-sm btn-primary  "
         >
-          Back To Admin Page
+          Back 
         </button>
       </div>
     </div>

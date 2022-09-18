@@ -149,7 +149,7 @@ console.log( bookingId)
             console.log(result)
             if(result!==null){
                 toast.success("Car Submitted")
-                navigate("/user/profile");
+                navigate("/");
             }
         }).catch((e)=>{
             toast.error("Failed To Submit")

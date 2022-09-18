@@ -9,6 +9,7 @@ import {
   FcSynchronize,
   FcAddressBook,
   FcNook,
+  FcBusinessman,
 } from "react-icons/fc";
 
 import { GrUpdate, GrUserAdmin, GrLocation } from "react-icons/gr";
@@ -80,7 +81,9 @@ const Navbar = () => {
                 <FcHome size={30} /> Home
               </Link>
             </li>
-            {userStatus && (
+
+
+             {userStatus && (
               <li>
                 <div className="dropdown">
                   <button
@@ -91,6 +94,7 @@ const Navbar = () => {
                     data-bs-toggle="dropdown"
                     aria-expanded="false"
                   >
+                    <FcBusinessman size={30}/>
                     Profile
                   </button>
                   <ul className="dropdown-menu">
@@ -257,18 +261,7 @@ const Navbar = () => {
                 </Link>
               </li>
             )}
-            {/* {adminStatus && (
-              <li className="nav-item">
-                <Link
-                  style={{ color: "white" }}
-                  className="nav-link active"
-                  aria-current="page"
-                  to="/admin/addCar"
-                >
-                  Add Car
-                </Link>
-              </li>
-            )} */}
+            
             <li>
               {userStatus && (
                 <button

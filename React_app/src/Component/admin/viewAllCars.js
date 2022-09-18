@@ -4,6 +4,7 @@ import config from "../../config";
 import { toast } from "react-toastify";
 import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
+import Config from "../../config";
 const ViewAllCars = () => {
   const [cars, setCars] = useState([]);
   const navigate = useNavigate();
@@ -57,7 +58,7 @@ const ViewAllCars = () => {
             return (
               <tr key={Car.carId}>
                 <td>{Car.carId}</td>
-                <td>{Car.carImage}</td>
+                <td>{<img src={Config.URL+"/customer/"+Car.carId} />}</td>
                 <td>{Car.availableFlag ? "Available" : "Booked"}</td>
                 <td>{Car.company}</td>
                 <td>{Car.modelName}</td>
@@ -76,13 +77,13 @@ const ViewAllCars = () => {
         </tbody>
       </table>
       <div class="col-md-12 text-center">
-        <button
+        {/* <button
           onClick={() => navigate(-1)}
           style={styles.button}
           className="btn btn-sm btn-primary  "
         >
           Back To Admin Page
-        </button>
+        </button> */}
       </div>
     </div>
   );

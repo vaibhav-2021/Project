@@ -7,6 +7,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { adminSignin } from "../../slice/adminSlice";
 import { custSignin } from "../../slice/customerSlice";
 import { FcSearch } from "react-icons/fc";
+import FooterComponent from "../footer"
 const Home = () => {
   const navigate = useNavigate();
   const [locationId, setLocationId] = useState("");
@@ -65,16 +66,21 @@ const Home = () => {
         //     "url('https://zoomcar-assets.zoomcar.com/images/original/9cecdb00e88fa2175d00e9d2b36c6bffd0e54207.jpg?1661348340')",
         // }}
       >
+        {/* https://image.shutterstock.com/image-vector/sale-car-rental-concept-vector-260nw-1387577387.jpg */}
         <img
-          src="https://zoomcar-assets.zoomcar.com/images/original/9cecdb00e88fa2175d00e9d2b36c6bffd0e54207.jpg?1661348340"
+        //src="https://image.shutterstock.com/image-vector/sale-car-rental-concept-vector-260nw-1387577387.jpg"
+          src="https://tourismhimachal.net.in/images/car-banner.jpg"
           style={{
             width: "100%",
             height: "50%",
-            marginTop: -70,
+             marginTop: 70,
             borderRadius: 15,
           }}
         ></img>
+        
+      <div/>
 
+      <div  style={{ height:300}} className="col">
         <h1 style={{ color: "blue", textAlign: "center", marginTop: 30 }}>
           Search Cars <FcSearch size={30} />
         </h1>
@@ -109,12 +115,30 @@ const Home = () => {
         >
           Find Car
         </button>
+        
+       
       </div>
+      <div style={{height:10}} className="col">
+        {/* <br/>
+          <br/>
+          <br/>
+          <br/>
+          <br/>
+          <br/>
+          <br/>
+          <br/>
+          <br/>
+          <br/> */}
 
-      <div className="row-4"></div>
+      <FooterComponent/>
+      
+      </div>
+      </div>
+      
 
-      <br />
+      
     </div>
+   
   );
 };
 export default Home;

@@ -5,6 +5,7 @@ import { toast } from "react-toastify";
 import { useEffect, useState } from "react";
 import { useLocation, useNavigate } from "react-router-dom";
 import { useSelector } from "react-redux";
+import Config from "../../config";
 const SearchCars = () => {
   const userStatus = useSelector((state) => state.customerSlice.CustStatus);
   const [cars, setCars] = useState([]);
@@ -66,7 +67,7 @@ const SearchCars = () => {
             return (
               <tr key={Car.carId}>
                 <td>{Car.carId}</td>
-                <td>{Car.carImage}</td>
+                <td>{<img src={Config.URL+"/customer/"+Car.carId} />}</td>
                 <td>{Car.availableFlag ? "Available" : "Booked"}</td>
                 <td>{Car.company}</td>
                 <td>{Car.modelName}</td>

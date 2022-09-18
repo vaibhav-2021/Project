@@ -120,7 +120,7 @@ const BookingCart = () => {
       className="row"
       style={{
         margin: "auto",
-        height: 450,
+        height: 550,
         width: "90%",
         marginTop: 50,
         boxShadow: "1px 1px 20px 5px gray",
@@ -150,7 +150,7 @@ const BookingCart = () => {
         <tbody>
           <tr key={Car.carId}>
             <td>{Car.carId}</td>
-            <td>{Car.carImage}</td>
+            <td>{<img src={Config.URL+"/customer/"+Car.carId} />}</td>
             <td>{Car.company}</td>
             <td>{Car.modelName}</td>
 

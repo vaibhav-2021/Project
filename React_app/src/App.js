@@ -26,6 +26,7 @@ import OldBookings from "./Component/user/oldBookings";
 import Addfeedback from "./Component/user/addFeedBack";
 import ViewFeedBacks from "./Component/admin/viewAllFeedbacks";
 import Replyfeedback from "./Component/admin/feedBackReply";
+import UploadCarImage from "./Component/admin/uploadCarImage";
 function App() {
   return (
     <div className="App">
@@ -34,7 +35,7 @@ function App() {
         <Routes>
           <Route path="/user/signup" element={<SignUp />} />
           <Route path="/user/signin" element={<SignIn />} />
-          <Route path="/user/profile" element={<Profile />} />
+          {/* <Route path="/user/profile" element={<Profile />} /> */}
           <Route path="/user/update" element={<Update />} />
           <Route path="/admin/signin" element={<AdminSignIn />} />
           <Route path="/admin/addCar" element={<AddCar />} />
@@ -54,6 +55,8 @@ function App() {
           <Route path="/user/AddFeedBack"element={<Addfeedback/>}/>
           <Route path="/admin/ViewAllFeedbacks"element={<ViewFeedBacks/>}/>
           <Route path="/admin/replyFeedback"element={<Replyfeedback/>}/>
+          <Route path="/admin/uploadCarImage"element={<UploadCarImage/>}/>
+
 
 
         </Routes>

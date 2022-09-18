@@ -9,7 +9,7 @@ const ViewFeedBacks=()=>{
 
     const navigate=useNavigate();
     const [feedBacks,setFeedBAcks]=useState([]);
-
+    
     useEffect(()=>{
         getAllFeedBacks();
     },[])
@@ -34,6 +34,7 @@ const ViewFeedBacks=()=>{
             <table className="table table-bordered">
                 <thead>
                 <tr>
+                    <th>SrNo</th>
                     <th>Booking Id</th>
                     <th>Customer Id</th>
                     <th>Feedback</th>
@@ -43,8 +44,10 @@ const ViewFeedBacks=()=>{
                 </thead>
                 <tbody>
                     {feedBacks.map((feedback)=>{
+                        
                         return(
                             <tr>
+                                
                                 <td>{feedback.bookingId.bookingId}</td>
                                 <td>{feedback.custId.custId}</td>
                                 <td>{feedback.message}</td>
