@@ -1,5 +1,9 @@
 import React from "react";
+<<<<<<< HEAD
 import { Link } from "react-router-dom";
+=======
+import { Link, useNavigate } from "react-router-dom";
+>>>>>>> d13a0575b95b67b281933dca66837d78c533137a
 
 const adminProfile = () => {
   return (

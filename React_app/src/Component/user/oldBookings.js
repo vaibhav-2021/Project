@@ -18,7 +18,11 @@ const OldBookings = () => {
         const result = response.data;
         if (result != null) {
           setBookings(result);
+<<<<<<< HEAD
           //console.log(result);
+=======
+          console.log(result);
+>>>>>>> d13a0575b95b67b281933dca66837d78c533137a
         }
       })
       .catch((e) => {
@@ -35,7 +39,11 @@ const OldBookings = () => {
         {/* <div className="col-4"></div> */}
         <div>
           {/* <Sidebar></Sidebar> */}
+<<<<<<< HEAD
           <table className="table-responsive ">
+=======
+          <table className="table ">
+>>>>>>> d13a0575b95b67b281933dca66837d78c533137a
             <thead>
               <tr>
                 <th>Booking Id</th>
@@ -97,7 +105,11 @@ const OldBookings = () => {
             </tbody>
           </table>
         </div>
+<<<<<<< HEAD
         <div className="col-md-12 text-center">
+=======
+        <div class="col-md-12 text-center">
+>>>>>>> d13a0575b95b67b281933dca66837d78c533137a
           <button
             onClick={() => navigate(-1)}
             style={styles.button}

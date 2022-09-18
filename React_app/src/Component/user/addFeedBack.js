@@ -32,8 +32,13 @@ const Addfeedback = () => {
         }
       })
       .catch((e) => {
+<<<<<<< HEAD
         // console.log(e)
         toast.error('feedback Already Added')
+=======
+        console.log(e)
+        toast.error('feedback failed')
+>>>>>>> d13a0575b95b67b281933dca66837d78c533137a
       })
   }
 

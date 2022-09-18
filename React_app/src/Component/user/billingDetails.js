@@ -21,7 +21,11 @@ const BillingDetails = () => {
   let PICKUPId;
   let DropID;
 
+<<<<<<< HEAD
   //console.log(bookingId);
+=======
+  console.log(bookingId);
+>>>>>>> d13a0575b95b67b281933dca66837d78c533137a
   useEffect(() => {
     getBooking();
     getCutomer();
@@ -44,8 +48,13 @@ const BillingDetails = () => {
           getBill();
           getPickUpLoc();
           getDropLoc();
+<<<<<<< HEAD
           // console.log("inside billing");
           // console.log(bookingId);
+=======
+          console.log("inside billing");
+          console.log(bookingId);
+>>>>>>> d13a0575b95b67b281933dca66837d78c533137a
         }
       })
       .catch((e) => {
@@ -172,7 +181,11 @@ const BillingDetails = () => {
           {customerDetails.mobileNo + "   "}
           <b>Email :</b> {customerDetails.email}{" "}
         </p>
+<<<<<<< HEAD
         <table className="table-responsive ">
+=======
+        <table className="table ">
+>>>>>>> d13a0575b95b67b281933dca66837d78c533137a
           <thead>
             <tr>
               <th>Description</th>
