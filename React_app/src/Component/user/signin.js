@@ -27,7 +27,7 @@ const SignIn = () => {
           if (result.custId !== null) {
             toast.success("Welcome " + result.firstName);
             dispatch(custSignin(result.custId));
-             navigate('/')
+            navigate("/");
           } else {
             toast.error("Invalid Email or Password");
           }
@@ -40,18 +40,21 @@ const SignIn = () => {
   };
   return (
     <div className="row">
+      {/* <h1 style={{ color: "blue", textAlign: "center", margin: 20 }}>SignIn</h1>
+      <hr /> */}
 
-      <h1 style={{ color: "blue", textAlign: "center", margin: 20 }}>SignIn</h1>
-      <hr/>
-
-      <div className="col-6">
-        <img src="https://t3.ftcdn.net/jpg/03/39/70/90/360_F_339709048_ZITR4wrVsOXCKdjHncdtabSNWpIhiaR7.jpg" />
-      </div>
+      <div className="col-1"></div>
       <div
-        style={{ height: 400, boxShadow: "1px 1px 20px 5px #C9C9C9" }}
-        className="col-4"
+        className="col-10"
+        style={{
+          margin: "auto",
+          // width: 500,
+          // height: 400,
+          boxShadow: "1px 1px 20px 5px #C9C9C9",
+        }}
       >
-        <h2 style={{color:"blue"}}>SignIn To Your Account</h2>
+        <img src="https://t3.ftcdn.net/jpg/03/39/70/90/360_F_339709048_ZITR4wrVsOXCKdjHncdtabSNWpIhiaR7.jpg" />
+        <h2 style={{ color: "blue" }}>SignIn To Your Account</h2>
         <span>
           <strong>Email</strong>
         </span>
@@ -77,7 +80,7 @@ const SignIn = () => {
           signin
         </button>
       </div>
-      {/* <div className="col-1"></div> */}
+      <div className="col-1"></div>
     </div>
   );
 };

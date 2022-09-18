@@ -15,7 +15,7 @@ const SearchCars = () => {
   }, []);
   const location = useLocation();
   const { locationId } = location.state;
- // console.log(locationId);
+  // console.log(locationId);
 
   const getallcars = () => {
     axios
@@ -84,10 +84,13 @@ const SearchCars = () => {
                     {userStatus && (
                       <button
                         className="btn btn-success"
-                        onClick={sessionStorage.carCatId=Car.carCategoryId.carCategoryId,() =>
-                          navigate("/customer/bookingCart", {
-                            state: { carId: Car.carId },
-                          })
+                        onClick={
+                          ((sessionStorage.carCatId =
+                            Car.carCategoryId.carCategoryId),
+                          () =>
+                            navigate("/customer/bookingCart", {
+                              state: { carId: Car.carId },
+                            }))
                         }
                       >
                         Select Car

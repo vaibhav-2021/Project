@@ -321,6 +321,57 @@
 						}
 					},
 					"response": []
+				},
+				{
+					"name": "get car by id",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8080/customer/getcarbyid/1",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"customer",
+								"getcarbyid",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Total Amount",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \r\n    \"pickUpDate\":\"2022-09-10\",\r\n    \"returnDate\":\"2022-09-12\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/customer/getTotalAmount/1000",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"customer",
+								"getTotalAmount",
+								"1000"
+							]
+						}
+					},
+					"response": []
 				}
 			]
 		},
@@ -531,6 +582,30 @@
 								"addcategory"
 							]
 						}
+					},
+					"response": []
+				},
+				{
+					"name": "Upload car image",
+					"request": {
+						"method": "GET",
+						"header": []
+					},
+					"response": []
+				},
+				{
+					"name": "Get location By Id",
+					"request": {
+						"method": "GET",
+						"header": []
+					},
+					"response": []
+				},
+				{
+					"name": "New Request",
+					"request": {
+						"method": "GET",
+						"header": []
 					},
 					"response": []
 				}
