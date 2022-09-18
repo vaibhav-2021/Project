@@ -18,7 +18,7 @@ const MyBookings = () => {
         const result = response.data;
         if (result != null) {
           setBookings(result);
-          console.log(result);
+         // console.log(result);
         }
       })
       .catch((e) => {
@@ -31,7 +31,7 @@ const MyBookings = () => {
       .put(Config.URL + "/customer/cancelbooking/" + bookId)
       .then((response) => {
         const result = response.data;
-        console.log(result);
+       // console.log(result);
         if (result !== null) {
           toast.success("Booking Cancelled");
           getCurrentBookings();
@@ -49,12 +49,13 @@ const MyBookings = () => {
         My Current Bookings
       </h2>
       <div>
-        <table className="table ">
+        <table className=" table-responsive">
           <thead>
             <tr>
               <th>Booking Id</th>
               <th>Customer Name</th>
               <th>Car Name</th>
+              <th>Car Image</th>
               <th>Registration No</th>
               <th>CarCategory Name</th>
               <th>pickUp Date</th>
@@ -80,6 +81,7 @@ const MyBookings = () => {
                       booking[0].customerId.lastName}
                   </td>
                   <td>{booking[0].carId.modelName}</td>
+                  <td>{<img src={Config.URL+"/customer/"+booking[0].carId.carId} />}</td>
                   <td>{booking[0].carId.registrationNo}</td>
                   <td>{booking[0].carId.carCategoryId.carCategoryName}</td>
                   <td>{booking[0].pickUpDate}</td>
@@ -120,7 +122,7 @@ const MyBookings = () => {
           </tbody>
         </table>
       </div>
-      <div class="col-md-12 text-center">
+      <div className="col-md-12 text-center">
         <button
           onClick={() => navigate(-1)}
           style={styles.button}

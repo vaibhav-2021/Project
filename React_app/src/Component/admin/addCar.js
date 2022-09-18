@@ -23,6 +23,7 @@ const AddCar = () => {
     getLocations();
     getCarCat();
   }, []);
+  
 
   const getLocations = () => {
     axios.get(Config.URL + "/admin/getalllocations").then((response) => {
@@ -38,7 +39,7 @@ const AddCar = () => {
     axios.get(Config.URL + "/admin/getcarcategories").then((response) => {
       const result = response.data;
       if (result !== null) {
-        console.log(result);
+        //console.log(result);
         setCarCat(result);
       }
     });
@@ -69,7 +70,7 @@ const AddCar = () => {
         }
       })
       .catch((e) => {
-        console.log(e);
+       // console.log(e);
         toast.error("Adding failed");
       });
   };
@@ -153,7 +154,7 @@ const AddCar = () => {
           <option>select</option>
           {carCat.map((category) => {
             return (
-              <option value={category.carCategoryId}>
+              <option key={category.carCategoryId} value={category.carCategoryId}>
                 {category.carCategoryName}
               </option>
             );
@@ -173,7 +174,7 @@ const AddCar = () => {
           <option>select</option>
           {locations.map((loc) => {
             return (
-              <option value={loc.locationId}>
+              <option key={loc.locationId} value={loc.locationId}>
                 {loc.city + "- " + loc.street + "- " + loc.locationName}
               </option>
             );

@@ -20,7 +20,7 @@ const ViewFeedBacks=()=>{
             const result=response.data;
             if(result!=null){
                 setFeedBAcks(result)
-                console.log(result);
+                //console.log(result);
             }
         }).catch((e)=>{
             toast.error("No Feedback Available!!")
@@ -46,7 +46,7 @@ const ViewFeedBacks=()=>{
                     {feedBacks.map((feedback)=>{
                         
                         return(
-                            <tr>
+                            <tr key={feedback.bookingId.bookingId}>
                                 
                                 <td>{feedback.bookingId.bookingId}</td>
                                 <td>{feedback.custId.custId}</td>

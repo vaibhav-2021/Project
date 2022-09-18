@@ -1,7 +1,6 @@
 import { useState, useEffect } from "react";
 import axios from "axios";
 import Config from "../../config";
-import { toast } from "react-toastify";
 import { useNavigate } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { adminSignin } from "../../slice/adminSlice";
@@ -24,9 +23,7 @@ const Home = () => {
   }, []);
 
   const keepSignedIN = () => {
-    console.log(sessionStorage.token > 0);
-    console.log(userStatus);
-
+  
     if (sessionStorage.token === "Admin") {
       dispatch(adminSignin(sessionStorage.token));
     }
@@ -57,18 +54,8 @@ const Home = () => {
     >
       <div
         className="row-4"
-        // style={{
-        //   height: "100vh",
-        //   width: 900,
-        //   // backgroundSize: "cover",
-        //   backgroundRepeat: "no-repeat",
-        //   backgroundImage:
-        //     "url('https://zoomcar-assets.zoomcar.com/images/original/9cecdb00e88fa2175d00e9d2b36c6bffd0e54207.jpg?1661348340')",
-        // }}
       >
-        {/* https://image.shutterstock.com/image-vector/sale-car-rental-concept-vector-260nw-1387577387.jpg */}
         <img
-        //src="https://image.shutterstock.com/image-vector/sale-car-rental-concept-vector-260nw-1387577387.jpg"
           src="https://tourismhimachal.net.in/images/car-banner.jpg"
           style={{
             width: "100%",
@@ -97,8 +84,9 @@ const Home = () => {
         >
           <option>select</option>
           {locations.map((loc) => {
+            
             return (
-              <option value={loc.locationId}>
+              <option key={loc.locationId} value={loc.locationId}>
                 {loc.city + "- " + loc.street + "- " + loc.locationName}
               </option>
             );
@@ -119,17 +107,6 @@ const Home = () => {
        
       </div>
       <div style={{height:10}} className="col">
-        {/* <br/>
-          <br/>
-          <br/>
-          <br/>
-          <br/>
-          <br/>
-          <br/>
-          <br/>
-          <br/>
-          <br/> */}
-
       <FooterComponent/>
       
       </div>

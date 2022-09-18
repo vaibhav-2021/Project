@@ -33,7 +33,7 @@ const SignIn = () => {
           }
         })
         .catch((e) => {
-          console.log(e);
+        //  console.log(e);
           toast.error("Invalid Email or Password");
         });
     }

@@ -18,7 +18,7 @@ const ViewAllCars = () => {
       .get(config.URL + "/admin/getallcars")
       .then((response) => {
         const result = response.data;
-        console.log(result);
+        //console.log(result);
         setCars(result);
         if (result !== null) {
         } else {
@@ -26,7 +26,7 @@ const ViewAllCars = () => {
         }
       })
       .catch((e) => {
-        console.log(e);
+       // console.log(e);
         toast.error("Cars not available");
       });
   };
@@ -76,14 +76,7 @@ const ViewAllCars = () => {
           })}
         </tbody>
       </table>
-      <div class="col-md-12 text-center">
-        {/* <button
-          onClick={() => navigate(-1)}
-          style={styles.button}
-          className="btn btn-sm btn-primary  "
-        >
-          Back To Admin Page
-        </button> */}
+      <div className="col-md-12 text-center">
       </div>
     </div>
   );

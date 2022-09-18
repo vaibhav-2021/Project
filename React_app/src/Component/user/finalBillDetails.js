@@ -23,7 +23,7 @@ const FinalBill=()=>{
      const navigate=useNavigate();
 
      
-console.log( bookingId)
+//console.log( bookingId)
      useEffect(()=>{
         getBooking();
          getCutomer();
@@ -146,7 +146,7 @@ console.log( bookingId)
         axios.put(Config.URL+"/customer/submitcar/"+bookId)
         .then((response)=>{
             const result=response.data;
-            console.log(result)
+           // console.log(result)
             if(result!==null){
                 toast.success("Car Submitted")
                 navigate("/");
@@ -167,7 +167,7 @@ console.log( bookingId)
                 <p><b>Name :</b>{customerDetails.firstName + " "+ customerDetails.middleName + " " + customerDetails.lastName + "   "}         
                 <b>Mobile :</b>{customerDetails.mobileNo + "   "}             
                 <b>Email :</b> {customerDetails.email} </p>
-                <table className="table ">
+                <table className="table-responsive ">
                     <thead>
                         <tr>
                        <th>Description</th>

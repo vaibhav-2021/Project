@@ -31,7 +31,7 @@ const Navbar = () => {
   const userStatus = useSelector((state) => state.customerSlice.CustStatus);
   const adminStatus = useSelector((state) => state.adminSlice.AdminStatus);
   //console.log("User Status "+userStatus)
-  console.log("admin Status " + adminStatus);
+  //console.log("admin Status " + adminStatus);
   const dispatch = useDispatch();
   const navigate = useNavigate();
   return (

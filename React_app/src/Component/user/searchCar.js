@@ -23,7 +23,7 @@ const SearchCars = () => {
       .get(config.URL + "/customer/getavailablecars/" + locationId)
       .then((response) => {
         const result = response.data;
-        console.log(result);
+        //console.log(result);
         setCars(result);
         if (result !== null) {
         } else {
@@ -31,7 +31,7 @@ const SearchCars = () => {
         }
       })
       .catch((e) => {
-        console.log(e);
+      //  console.log(e);
         toast.error("Cars not available");
       });
   };
@@ -104,7 +104,7 @@ const SearchCars = () => {
           })}
         </tbody>
       </table>
-      <div class="col-md-12 text-center">
+      <div className="col-md-12 text-center">
         <button
           onClick={() => navigate(-1)}
           style={styles.button}

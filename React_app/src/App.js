@@ -27,6 +27,9 @@ import Addfeedback from "./Component/user/addFeedBack";
 import ViewFeedBacks from "./Component/admin/viewAllFeedbacks";
 import Replyfeedback from "./Component/admin/feedBackReply";
 import UploadCarImage from "./Component/admin/uploadCarImage";
+import Aboutus from "./Component/aboutUs";
+import ContactUs from "./Component/contactUs";
+import Faq from "./Component/faq"
 function App() {
   return (
     <div className="App">
@@ -56,8 +59,9 @@ function App() {
           <Route path="/admin/ViewAllFeedbacks"element={<ViewFeedBacks/>}/>
           <Route path="/admin/replyFeedback"element={<Replyfeedback/>}/>
           <Route path="/admin/uploadCarImage"element={<UploadCarImage/>}/>
-
-
+          <Route path="/aboutUs"element={<Aboutus/>}/>
+          <Route path="/contactUs"element={<ContactUs/>}/>
+          <Route path="/faq"element={<Faq/>}/>
 
         </Routes>
         <ToastContainer />

@@ -18,6 +18,7 @@ const BookingCart = () => {
   const day = new Date().getDate();
   const month = new Date().getMonth() + 1;
   const year = new Date().getFullYear();
+  let CarId;
   //const [bookingId, setBookingId] = useState("");
   let bookingId;
   useEffect(() => {
@@ -40,8 +41,9 @@ const BookingCart = () => {
     axios.get(Config.URL + "/customer/getcarbyid/" + carId).then((response) => {
       const result = response.data;
       if (result !== null) {
-        //console.log(result);
+        //console.log(result.carId);
         setCar(result);
+        CarId=result.carId;
       }
     });
   };
@@ -70,7 +72,7 @@ const BookingCart = () => {
       .then((response) => {
         const result = response.data;
         if (result !== null) {
-          console.log(result);
+         // console.log(result);
           setLoc(result);
         }
       });
@@ -82,7 +84,7 @@ const BookingCart = () => {
       .then((response) => {
         const result = response.data;
         if (result !== null) {
-          console.log(result);
+         // console.log(result);
           setCarCat(result);
         }
       });
@@ -105,9 +107,9 @@ const BookingCart = () => {
           //setBookingId(result);
           bookingId = result;
           toast.success("Car Booked ");
-          console.log("inside booking");
-          console.log(result);
-          console.log(bookingId);
+          // console.log("inside booking");
+          // console.log(result);
+          // console.log(bookingId);
           navigate("/user/bookingDetails", {
             state: { bookingId: bookingId },
           });
@@ -169,7 +171,7 @@ const BookingCart = () => {
       <div>
         <label>Pick Up Date - </label>
 
-        <input value={day + "/" + month + "/" + year} />
+        <input defaultValue={day + "/" + month + "/" + year} />
       </div>
 
       <div>
@@ -187,7 +189,9 @@ const BookingCart = () => {
         <input
           style={{ margin: "auto", width: 100 }}
           type="number"
-          value={totalAmount}
+          
+           readOnly value={totalAmount}
+           
         />
         <button
           style={{ marginLeft: 20 }}
@@ -209,7 +213,7 @@ const BookingCart = () => {
           <option>select</option>
           {locations.map((loc) => {
             return (
-              <option value={loc.locationId}>
+              <option key={loc.locationId} value={loc.locationId}>
                 {loc.city + "- " + loc.street + "- " + loc.locationName}
               </option>
             );
