@@ -48,56 +48,56 @@ const Aboutus = () => {
         <br />
         <br />
         <h1 style={{ textAlign: 'center' }}>Team</h1>
-        <div class='row text-center'>
-          <div class='col-xl-3 col-sm-6 mb-5'>
-            <div class='bg-white rounded shadow-sm py-5 px-4'>
+        <div className='row text-center'>
+          <div className='col-xl-3 col-sm-6 mb-5'>
+            <div className='bg-white rounded shadow-sm py-5 px-4'>
               <img
                 src={shahbaj_photo}
                 alt=''
                 width='100'
-                class='img-fluid rounded-circle mb-3 img-thumbnail shadow-sm'
+                className='img-fluid rounded-circle mb-3 img-thumbnail shadow-sm'
               />
-              <h5 class='mb-0'>Shahbaj Tamboli</h5>
-              <span class='small text-uppercase text-muted'>CEO - Founder</span>
+              <h5 className='mb-0'>Shahbaj Tamboli</h5>
+              <span className='small text-uppercase text-muted'>CEO - Founder</span>
             </div>
           </div>
 
-          <div class='col-xl-3 col-sm-6 mb-5'>
-            <div class='bg-white rounded shadow-sm py-5 px-4'>
+          <div className='col-xl-3 col-sm-6 mb-5'>
+            <div className='bg-white rounded shadow-sm py-5 px-4'>
               <img
                 src={Vaibhav}
                 alt=''
                 width='100'
-                class='img-fluid rounded-circle mb-3 img-thumbnail shadow-sm'
+                className='img-fluid rounded-circle mb-3 img-thumbnail shadow-sm'
               />
-              <h5 class='mb-0'>Vaibhav Jadhav</h5>
-              <span class='small text-uppercase text-muted'>CEO - Founder</span>
+              <h5 className='mb-0'>Vaibhav Jadhav</h5>
+              <span className='small text-uppercase text-muted'>CEO - Founder</span>
             </div>
           </div>
 
-          <div class='col-xl-3 col-sm-6 mb-5'>
-            <div class='bg-white rounded shadow-sm py-5 px-4'>
+          <div className='col-xl-3 col-sm-6 mb-5'>
+            <div className='bg-white rounded shadow-sm py-5 px-4'>
               <img
                 src={Amol}
                 alt=''
                 width='100'
-                class='img-fluid rounded-circle mb-3 img-thumbnail shadow-sm'
+                className='img-fluid rounded-circle mb-3 img-thumbnail shadow-sm'
               />
-              <h5 class='mb-0'>Amol Totre</h5>
-              <span class='small text-uppercase text-muted'>CEO - Founder</span>
+              <h5 className='mb-0'>Amol Totre</h5>
+              <span className='small text-uppercase text-muted'>CEO - Founder</span>
             </div>
           </div>
 
-          <div class='col-xl-3 col-sm-6 mb-5'>
-            <div class='bg-white rounded shadow-sm py-5 px-4'>
+          <div className='col-xl-3 col-sm-6 mb-5'>
+            <div className='bg-white rounded shadow-sm py-5 px-4'>
               <img
                 src={Yash}
                 alt=''
                 width='100'
-                class='img-fluid rounded-circle mb-3 img-thumbnail shadow-sm'
+                className='img-fluid rounded-circle mb-3 img-thumbnail shadow-sm'
               />
-              <h5 class='mb-0'>Yash Gupta</h5>
-              <span class='small text-uppercase text-muted'>CEO - Founder</span>
+              <h5 className='mb-0'>Yash Gupta</h5>
+              <span className='small text-uppercase text-muted'>CEO - Founder</span>
             </div>
           </div>
         </div>

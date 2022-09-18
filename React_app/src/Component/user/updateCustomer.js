@@ -29,11 +29,7 @@ const Update=()=>{
         then((response)=>{
             const result=response.data;
             if(result!==null){
-<<<<<<< HEAD
                // console.log(result)
-=======
-                console.log(result)
->>>>>>> d13a0575b95b67b281933dca66837d78c533137a
                 setFname(result.firstName);
                 setMname(result.middleName);
                 setLname(result.lastName);
@@ -67,11 +63,7 @@ const Update=()=>{
             toast.success("Profile Updated")
         }
         ).catch((e)=>{
-<<<<<<< HEAD
            // console.log(e);
-=======
-            console.log(e);
->>>>>>> d13a0575b95b67b281933dca66837d78c533137a
             toast.error("Update Fail");
         })
     }

@@ -7,13 +7,8 @@ const customerSlice=createSlice({
     reducers:{
         custSignin:(state,action)=>{
             state.CustStatus= true
-<<<<<<< HEAD
             // console.log("Inside cust "+state.CustStatus)
             // console.log("inside cust Slice "+action.payload)
-=======
-            console.log("Inside cust "+state.CustStatus)
-            console.log("inside cust Slice "+action.payload)
->>>>>>> d13a0575b95b67b281933dca66837d78c533137a
             sessionStorage.token=action.payload
         },
 

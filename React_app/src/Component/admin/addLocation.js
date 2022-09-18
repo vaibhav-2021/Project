@@ -35,11 +35,7 @@ const AddLocation = () => {
         }
       })
       .catch((e) => {
-<<<<<<< HEAD
         //console.log(e);
-=======
-        console.log(e);
->>>>>>> d13a0575b95b67b281933dca66837d78c533137a
         toast.error("Adding failed");
       });
   };

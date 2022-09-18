@@ -13,13 +13,8 @@ const Replyfeedback = () => {
   const location=useLocation();
   const {bookingId}=location.state;
   const {custId}=location.state;
-<<<<<<< HEAD
   // console.log(bookingId)
   // console.log(custId)
-=======
-  console.log(bookingId)
-  console.log(custId)
->>>>>>> d13a0575b95b67b281933dca66837d78c533137a
 
 
   const addreply = () => {
@@ -38,11 +33,7 @@ const Replyfeedback = () => {
         }
       })
       .catch((e) => {
-<<<<<<< HEAD
         // console.log(e)
-=======
-        console.log(e)
->>>>>>> d13a0575b95b67b281933dca66837d78c533137a
         toast.error('feedback reply failed')
       })
   }

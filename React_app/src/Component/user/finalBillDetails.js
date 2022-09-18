@@ -167,7 +167,8 @@ const FinalBill=()=>{
                 <p><b>Name :</b>{customerDetails.firstName + " "+ customerDetails.middleName + " " + customerDetails.lastName + "   "}         
                 <b>Mobile :</b>{customerDetails.mobileNo + "   "}             
                 <b>Email :</b> {customerDetails.email} </p>
-                <table className="table-responsive ">
+                <div className="table-responsive">
+                <table className="table ">
                     <thead>
                         <tr>
                        <th>Description</th>
@@ -292,6 +293,7 @@ const FinalBill=()=>{
                     
                     </tbody>
                 </table>
+                </div>
                 
                 <strong>- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -</strong>
                   <h2 style={{color:'red',textAlign:"center"}}>Late Fees : {billDetails.lateFees}</h2>

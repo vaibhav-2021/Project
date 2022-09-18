@@ -17,11 +17,7 @@ const ViewAllCustomers = () => {
       .get(config.URL + "/admin/getallcustomers")
       .then((response) => {
         const result = response.data;
-<<<<<<< HEAD
         //console.log(result);
-=======
-        console.log(result);
->>>>>>> d13a0575b95b67b281933dca66837d78c533137a
         setCustomers(result);
         if (result !== null) {
         } else {
@@ -29,11 +25,7 @@ const ViewAllCustomers = () => {
         }
       })
       .catch((e) => {
-<<<<<<< HEAD
         //console.log(e);
-=======
-        console.log(e);
->>>>>>> d13a0575b95b67b281933dca66837d78c533137a
         toast.error("Cars not available");
       });
   };
@@ -83,11 +75,7 @@ const ViewAllCustomers = () => {
           })}
         </tbody>
       </table>
-<<<<<<< HEAD
       <div className="col-md-12 text-center">
-=======
-      <div class="col-md-12 text-center">
->>>>>>> d13a0575b95b67b281933dca66837d78c533137a
         <button
           onClick={() => navigate(-1)}
           style={styles.button}
