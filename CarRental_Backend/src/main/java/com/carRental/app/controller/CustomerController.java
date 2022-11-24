@@ -29,7 +29,7 @@ import com.carRental.app.service.ILocationService;
 
 @RestController
 @RequestMapping("/customer")
-@CrossOrigin(origins = "http://localhost:3000")
+@CrossOrigin(origins = "*")
 
 public class CustomerController {
 

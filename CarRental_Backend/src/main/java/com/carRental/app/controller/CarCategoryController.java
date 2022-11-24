@@ -12,7 +12,7 @@ import com.carRental.app.Entities.CarCategory;
 import com.carRental.app.service.ICarCategoryService;
 
 @RestController
-@CrossOrigin(origins = "http://localhost:3000")
+@CrossOrigin(origins = "*")
 public class CarCategoryController {
 
 	@Autowired

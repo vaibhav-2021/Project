@@ -14,7 +14,7 @@ import com.carRental.app.Entities.Location;
 import com.carRental.app.service.ILocationService;
 
 @RestController
-@CrossOrigin(origins = "http://localhost:3000")
+@CrossOrigin(origins = "*")
 public class LocationController {
 
 	@Autowired

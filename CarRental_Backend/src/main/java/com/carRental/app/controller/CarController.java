@@ -22,7 +22,7 @@ import com.carRental.app.service.ICarService;
 import com.carRental.app.service.ImageHandlingService;
 
 @RestController
-@CrossOrigin(origins = "http://localhost:3000")
+@CrossOrigin(origins = "*")
 
 public class CarController {
 
